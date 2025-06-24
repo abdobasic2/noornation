@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoorNation 2025: AI-Enhanced Go-to-Market Strategy</title>
+    <title>NoorNation 2025: Detailed Go-to-Market Strategy</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -218,8 +218,16 @@
             padding-right: 15px;
         }
 
-        body.ltr h3 { font-family: var(--font-primary); }
-        body.rtl h3 { font-family: var(--font-secondary); }
+        h4.detail-heading {
+             font-size: 1.2rem;
+             color: var(--secondary-color);
+             margin-top: 1.5rem;
+             margin-bottom: 0.5rem;
+             font-weight: 700;
+        }
+
+        body.ltr h3, body.ltr h4.detail-heading { font-family: var(--font-primary); }
+        body.rtl h3, body.rtl h4.detail-heading { font-family: var(--font-secondary); }
 
         p, li {
             font-size: 1.1rem;
@@ -333,17 +341,6 @@
             animation: fadeIn 0.5s;
         }
         
-        .threat-item {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
-            gap: 1rem;
-        }
-        .threat-item span {
-            flex-grow: 1;
-        }
-
         /* Persona Section */
         .personas-container {
             display: grid;
@@ -357,7 +354,7 @@
         .persona-card-inner {
             position: relative;
             width: 100%;
-            min-height: 450px; /* Increased height for the new button */
+            min-height: 400px; 
             text-align: center;
             transition: transform 0.8s;
             transform-style: preserve-3d;
@@ -375,7 +372,7 @@
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: space-between; /* Adjusted for button */
+            justify-content: center; 
             align-items: center;
             padding: 2rem;
             border-radius: 15px;
@@ -402,6 +399,7 @@
             color: var(--text-color);
             transform: rotateY(180deg);
             align-items: flex-start;
+            justify-content: center;
         }
         body.rtl .persona-card-back {
             align-items: flex-end;
@@ -474,15 +472,15 @@
         .accordion-content .content-inner { 
             padding: 1.5rem 0; 
             border-top: 1px solid var(--light-gray); 
-            color: var(--text-color); /* FIX: Set text color for visibility on white background */
+            color: var(--text-color);
         }
         
         .roi-calculator { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2rem;}
         .roi-calculator .form-group { margin-bottom: 1rem; }
         .roi-calculator label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         .roi-calculator input, .roi-calculator select { width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--light-gray); font-size: 1rem;}
-        .roi-calculator button:not(.gemini-btn) { background-color: var(--secondary-color); color: var(--white); border: none; padding: 1rem 2rem; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: background-color 0.3s; width: 100%; margin-top: 1rem;}
-        .roi-calculator button:not(.gemini-btn):hover { background-color: #008a59; }
+        .roi-calculator button { background-color: var(--secondary-color); color: var(--white); border: none; padding: 1rem 2rem; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: background-color 0.3s; width: 100%; margin-top: 1rem;}
+        .roi-calculator button:hover { background-color: #008a59; }
         .roi-results h4 { color: var(--primary-color); margin-bottom: 1rem; }
         .roi-results p { font-size: 1.2rem; margin-bottom: 0.8rem; }
         .roi-results .highlight { font-weight: 700; color: var(--secondary-color); font-size: 1.5rem; }
@@ -494,101 +492,6 @@
         tr:nth-child(even) { background-color: #f9f9f9; }
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
         
-        /* Gemini API Feature Styles */
-        .gemini-btn {
-            background: linear-gradient(45deg, var(--accent-color), #ffc107);
-            color: var(--primary-color);
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            margin-top: 1rem;
-        }
-        .gemini-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
-        }
-        .gemini-modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-        .gemini-modal {
-            background-color: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            width: 90%;
-            max-width: 700px;
-            max-height: 80vh;
-            overflow-y: auto;
-            position: relative;
-            animation: slideIn 0.4s ease-out;
-        }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .gemini-modal-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 1.8rem;
-            color: #aaa;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        body.rtl .gemini-modal-close {
-            right: auto;
-            left: 20px;
-        }
-        .gemini-modal-close:hover {
-            color: var(--primary-color);
-        }
-        .gemini-modal h3 {
-            margin-top: 0;
-        }
-        .gemini-output {
-            background-color: var(--background-color);
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-top: 1.5rem;
-            white-space: pre-wrap;
-            font-family: inherit;
-            min-height: 150px;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-        .loading-spinner {
-            border: 4px solid var(--light-gray);
-            border-top: 4px solid var(--secondary-color);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 2rem auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-
         @media screen and (max-width: 992px) {
             nav ul { justify-content: flex-start; overflow-x: auto; padding: 0 1rem;}
             nav ul li a { padding: 0.8rem; font-size: 0.85rem;}
@@ -603,7 +506,6 @@
             header h1 { font-size: 2.5rem; }
             header p { font-size: 1.1rem; }
             section { padding: 60px 20px; }
-            .threat-item { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -639,7 +541,6 @@
             <div class="container">
                 <h2 data-translate="section1.title">Section 1: Executive Dashboard</h2>
                 
-                <!-- NEW: Infographic Overview -->
                 <div class="infographic-overview">
                     <div class="info-card">
                         <i class="fas fa-users"></i>
@@ -704,40 +605,16 @@
                     </div>
 
                     <div id="Strengths" class="tab-content active">
-                        <h4 data-translate="section2.swot.tabs.strengths">Strengths</h4>
-                        <ul>
-                            <li data-translate="section2.swot.strength1"><strong>Award-Winning Credibility:</strong> The Access Sharjah Challenge 2024 win is our primary tool for UAE market entry.</li>
-                            <li data-translate="section2.swot.strength2"><strong>Proven & Quantifiable Impact:</strong> Track record in Egypt (22 LifeBox units, 2,200 acres irrigated, $510,000 saved).</li>
-                            <li data-translate="section2.swot.strength3"><strong>Integrated Solution Superiority:</strong> LifeBox is a unique, "Plug & Play" all-in-one solution for energy and water.</li>
-                        </ul>
+                        <div data-translate="section2.swot.strengths_detail"></div>
                     </div>
                     <div id="Weaknesses" class="tab-content">
-                         <h4 data-translate="section2.swot.tabs.weaknesses">Weaknesses</h4>
-                        <ul>
-                           <li data-translate="section2.swot.weakness1"><strong>Ineffective Referral Program:</strong> Current "third-party resell" model is structurally flawed.</li>
-                           <li data-translate="section2.swot.weakness2"><strong>Undeveloped Financing Offer:</strong> "Flexible financial models" lack substance and need a clear, marketable program.</li>
-                        </ul>
+                        <div data-translate="section2.swot.weaknesses_detail"></div>
                     </div>
                     <div id="Opportunities" class="tab-content">
-                        <h4 data-translate="section2.swot.tabs.opportunities">Opportunities</h4>
-                        <ul>
-                            <li data-translate="section2.swot.opportunity1"><strong>Alignment with National Strategies:</strong> Perfectly aligned with UAE's Food Security 2051 and Energy 2050 strategies.</li>
-                            <li data-translate="section2.swot.opportunity2"><strong>Exploiting Competitor Weaknesses:</strong> Limited digital presence of regional competitors creates an opening for digital dominance.</li>
-                            <li data-translate="section2.swot.opportunity3"><strong>Untapped Market Segments:</strong> Significant opportunities in KSA and other GCC countries.</li>
-                        </ul>
+                        <div data-translate="section2.swot.opportunities_detail"></div>
                     </div>
                      <div id="Threats" class="tab-content">
-                        <h4 data-translate="section2.swot.tabs.threats">Threats</h4>
-                        <ul>
-                            <li class="threat-item">
-                                <span data-translate="section2.swot.threat1"><strong>Inertia of Traditional Solutions:</strong> Dominance of diesel pumps requires marketing focused on their vulnerabilities.</span>
-                                <button class="gemini-btn" onclick="generateContent('threat', 'threat1')">✨ <span data-translate="gemini.btn.advise">Advise</span></button>
-                            </li>
-                            <li class="threat-item">
-                                <span data-translate="section2.swot.threat2"><strong>Price-Based Competition:</strong> Need to shift the conversation from price to Total Cost of Ownership (TCO) and ROI.</span>
-                                <button class="gemini-btn" onclick="generateContent('threat', 'threat2')">✨ <span data-translate="gemini.btn.advise">Advise</span></button>
-                            </li>
-                        </ul>
+                        <div data-translate="section2.swot.threats_detail"></div>
                     </div>
                 </div>
                 <div class="card">
@@ -752,7 +629,6 @@
                                         <h4 data-translate="section2.personas.ahmed.name">"Ahmed"</h4>
                                         <p data-translate="section2.personas.ahmed.desc">The Small-Scale Egyptian Farmer</p>
                                     </div>
-                                    <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'ahmed')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                                 <div class="persona-card-back">
                                     <div class="persona-card-back-content">
@@ -761,7 +637,6 @@
                                         <h5 data-translate="section2.personas.gains">Gains</h5>
                                         <ul><li data-translate="section2.personas.ahmed.gain1">Water security</li><li data-translate="section2.personas.ahmed.gain2">Predictable costs</li><li data-translate="section2.personas.ahmed.gain3">Higher profitability</li></ul>
                                     </div>
-                                     <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'ahmed')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                             </div>
                         </div>
@@ -773,7 +648,6 @@
                                         <h4 data-translate="section2.personas.fatima.name">"Fatima"</h4>
                                         <p data-translate="section2.personas.fatima.desc">The UAE Agri-Business Manager</p>
                                     </div>
-                                    <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'fatima')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                                 <div class="persona-card-back">
                                      <div class="persona-card-back-content">
@@ -782,7 +656,6 @@
                                         <h5 data-translate="section2.personas.gains">Gains</h5>
                                         <ul><li data-translate="section2.personas.fatima.gain1">Alignment with UAE Vision 2051</li><li data-translate="section2.personas.fatima.gain2">Achieving sustainability KPIs</li><li data-translate="section2.personas.fatima.gain3">Long-term production security</li></ul>
                                      </div>
-                                      <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'fatima')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                             </div>
                         </div>
@@ -794,7 +667,6 @@
                                         <h4 data-translate="section2.personas.david.name">"David"</h4>
                                         <p data-translate="section2.personas.david.desc">The NGO/Gov Project Manager</p>
                                     </div>
-                                    <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'david')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                                 <div class="persona-card-back">
                                      <div class="persona-card-back-content">
@@ -803,7 +675,6 @@
                                         <h5 data-translate="section2.personas.gains">Gains</h5>
                                         <ul><li data-translate="section2.personas.david.gain1">'Plug & Play' easy deployment</li><li data-translate="section2.personas.david.gain2">Clear ESG impact metrics</li><li data-translate="section2.personas.david.gain3">Alignment with SDGs</li></ul>
                                      </div>
-                                     <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'david')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                             </div>
                         </div>
@@ -962,7 +833,6 @@
                         <div class="accordion-content">
                             <div class="content-inner">
                                 <p data-translate="section5.social.text">In high-trust B2B sales, the personal brand of the founder/CEO is a tremendous asset. The primary LinkedIn focus will shift from the company page to Eng. Ragy Ramadan's profile, sharing authentic stories, industry insights, and behind-the-scenes content to build credibility.</p>
-                                <button class="gemini-btn" onclick="generateContent('linkedin')">✨ <span data-translate="gemini.btn.linkedin">Generate LinkedIn Post</span></button>
                             </div>
                         </div>
                     </div>
@@ -1076,8 +946,7 @@
                      <div class="accordion-item">
                         <div class="accordion-header"><i class="fas fa-users icon-header"></i> <span data-translate="section6.referral.title">The Revamped Advocate & Referral Program</span> <span class="icon fas fa-chevron-down"></span></div>
                         <div class="accordion-content">
-                            <div class="content-inner">
-                                <p data-translate="section6.referral.text">The ineffective "resell" model will be replaced with the "NoorNation Ambassadors Program." It is a dual-sided incentive program where both the referrer (our Ambassador) and the new customer receive a significant reward for each successful sale. This will be tracked using professional referral marketing software.</p>
+                            <div class="content-inner" data-translate="section6.referral.detail">
                             </div>
                         </div>
                     </div>
@@ -1162,28 +1031,11 @@
         </section>
     </main>
 
-    <!-- Gemini Modal -->
-    <div id="gemini-modal-overlay" class="gemini-modal-overlay">
-        <div id="gemini-modal" class="gemini-modal">
-            <span id="gemini-modal-close" class="gemini-modal-close">&times;</span>
-            <h3 id="gemini-modal-title"></h3>
-            <div id="gemini-modal-output" class="gemini-output">
-                <!-- Content will be injected here -->
-            </div>
-            <button id="gemini-copy-btn" class="gemini-btn" style="display: none;"><i class="fas fa-copy"></i> <span data-translate="gemini.btn.copy">Copy Text</span></button>
-        </div>
-    </div>
-
-
     <script>
         const translations = {
             en: {
                 header: { title: "NoorNation 2025", subtitle: "The Integrated Go-to-Market Strategy: A Roadmap for Regional Leadership and Sustainable Growth" },
                 nav: { section1: "Dashboard", section2: "Strategic Analysis", section3: "Objectives", section4: "Sales & Financing", section5: "Marketing Engine", section6: "Field Strategy", section7: "Performance & KPIs" },
-                gemini: {
-                    btn: { messaging: "Generate Messaging", advise: "Advise", linkedin: "Generate LinkedIn Post", copy: "Copy Text" },
-                    title: { persona: "AI-Generated Messaging for", threat: "AI-Generated Threat Analysis for", linkedin: "AI-Generated LinkedIn Post" }
-                },
                 section1: {
                     title: "Section 1: Executive Dashboard",
                     infographic: {
@@ -1200,16 +1052,34 @@
                     swot: { 
                         title: "2.1. Enhanced SWOT Analysis", 
                         tabs: { strengths: "Strengths", weaknesses: "Weaknesses", opportunities: "Opportunities", threats: "Threats"},
-                        strength1: "<strong>Award-Winning Credibility:</strong> The Access Sharjah Challenge 2024 win is our primary tool for UAE market entry.",
-                        strength2: "<strong>Proven & Quantifiable Impact:</strong> Track record in Egypt (22 LifeBox units, 2,200 acres irrigated, $510,000 saved).",
-                        strength3: "<strong>Integrated Solution Superiority:</strong> LifeBox is a unique, 'Plug & Play' all-in-one solution for energy and water.",
-                        weakness1: "<strong>Ineffective Referral Program:</strong> Current 'third-party resell' model is structurally flawed.",
-                        weakness2: "<strong>Undeveloped Financing Offer:</strong> 'Flexible financial models' lack substance and need a clear, marketable program.",
-                        opportunity1: "<strong>Alignment with National Strategies:</strong> Perfectly aligned with UAE's Food Security 2051 and Energy 2050 strategies.",
-                        opportunity2: "<strong>Exploiting Competitor Weaknesses:</strong> Limited digital presence of regional competitors creates an opening for digital dominance.",
-                        opportunity3: "<strong>Untapped Market Segments:</strong> Significant opportunities in KSA and other GCC countries.",
-                        threat1: "<strong>Inertia of Traditional Solutions:</strong> Dominance of diesel pumps requires marketing focused on their vulnerabilities.",
-                        threat2: "<strong>Price-Based Competition:</strong> Need to shift the conversation from price to Total Cost of Ownership (TCO) and ROI." 
+                        strengths_detail: `
+                            <h4 class="detail-heading">Award-Winning Credibility</h4>
+                            <p>The Access Sharjah Challenge 2024 win is not just an accolade; it is our primary tool for UAE market entry. It provides immediate third-party validation of our innovation and commitment to sustainability, a core value in the region. This award will be the centerpiece of our initial PR campaigns in the UAE.</p>
+                            <h4 class="detail-heading">Proven & Quantifiable Impact</h4>
+                            <p>Our track record in Egypt (22 LifeBox units deployed, 2,200 acres irrigated, 7 million liters of water desalinated, and $510,000 saved) is our most powerful marketing asset. This data provides the social proof necessary for B2B purchasing decisions.</p>
+                             <h4 class="detail-heading">Integrated Solution Superiority</h4>
+                            <p>LifeBox is a unique, all-in-one, "Plug & Play" solution for both energy and water. This critically differentiates us from competitors offering piecemeal products (solar panels or water pumps), which forces integration challenges onto the customer.</p>
+                        `,
+                        weaknesses_detail: `
+                            <h4 class="detail-heading">Ineffective Referral Program</h4>
+                            <p>The current model, noted as "(resell through third party)," is structurally flawed. It creates a middleman and fails to incentivize our most powerful advocates: satisfied customers. This will be completely overhauled.</p>
+                            <h4 class="detail-heading">Undeveloped Financing Offer</h4>
+                            <p>"Flexible financial models" are mentioned as a strength but lack substance. Without a clear, marketable financing program, the high upfront cost of LifeBox remains a major sales barrier.</p>
+                        `,
+                        opportunities_detail: `
+                            <h4 class="detail-heading">Alignment with National Strategies</h4>
+                            <p>The UAE's "National Food Security Strategy 2051" and "Energy Strategy 2050" are not just policies; they are market-creation engines. They prioritize AgriTech, sustainable local production, and reduced import dependency. LifeBox directly serves these national objectives, allowing us to position ourselves as a strategic partner to the UAE government, not just a vendor.</p>
+                            <h4 class="detail-heading">Exploiting Competitor Weaknesses</h4>
+                            <p>Many regional competitors exhibit a "limited or undetailed digital presence". A sophisticated, content-rich digital strategy will allow us to dominate the digital landscape, capturing mindshare and market share.</p>
+                             <h4 class="detail-heading">Untapped Market Segments</h4>
+                            <p>The MENA region is the most water-scarce in the world. Significant opportunities exist in markets like Saudi Arabia and other GCC countries where solar-powered desalination is a growing necessity.</p>
+                        `,
+                        threats_detail: `
+                            <h4 class="detail-heading">Inertia of Traditional Solutions</h4>
+                            <p>Diesel pumps are the incumbent solution. Our marketing must aggressively target their weaknesses: high and volatile fuel costs, high maintenance, and negative environmental impact.</p>
+                            <h4 class="detail-heading">Price-Based Competition</h4>
+                            <p>As the market grows, new competitors will enter, competing on price. Our strategy must proactively shift the conversation from price to Total Cost of Ownership (TCO) and Return on Investment (ROI), where LifeBox has a clear advantage.</p>
+                        `
                     },
                     personas: { title: "2.3. Target Audience Personas", subtitle: "Understanding our customers is key. Click on each card to reveal the motivations, pains, and gains of our core audience segments.", ahmed: { name: "'Ahmed'", desc: "The Small-Scale Egyptian Farmer", pain1: "Unreliable water supply", pain2: "Volatile fuel prices", pain3: "Low crop yields", gain1: "Water security", gain2: "Predictable costs", gain3: "Higher profitability" }, fatima: { name: "'Fatima'", desc: "The UAE Agri-Business Manager", pain1: "Meeting national food security targets", pain2: "Extreme water scarcity", pain3: "High energy costs", gain1: "Alignment with UAE Vision 2051", gain2: "Achieving sustainability KPIs", gain3: "Long-term production security" }, david: { name: "'David'", desc: "The NGO/Gov Project Manager", pain1: "Deploying solutions in remote areas", pain2: "Ensuring project sustainability", pain3: "Reporting quantifiable impact", gain1: "'Plug & Play' easy deployment", gain2: "Clear ESG impact metrics", gain3: "Alignment with SDGs" }, pains: "Pains", gains: "Gains" }
                 },
@@ -1275,7 +1145,16 @@
                     },
                     referral: {
                         title: "The Revamped Advocate & Referral Program",
-                        text: "The ineffective 'resell' model will be replaced with the 'NoorNation Ambassadors Program.' It is a dual-sided incentive program where both the referrer (our Ambassador) and the new customer receive a significant reward for each successful sale. This will be tracked using professional referral marketing software."
+                        detail: `
+                            <p>The current "resell" based program is ineffective because it doesn’t leverage the most credible sales force: existing customers. A successful program for a high-value product must be mutually beneficial, rewarding the advocate for their trust and the new customer for their purchase. The "NoorNation Ambassadors Program" will be launched with the following structure:</p>
+                            <h4 class="detail-heading">Dual-Sided Incentive</h4>
+                            <ul>
+                                <li><strong>Ambassador (Referrer):</strong> Receives a significant reward for each successful sale (e.g., $500 cash bonus or a credit for one year of free maintenance).</li>
+                                <li><strong>New Customer (Referee):</strong> Receives an immediate benefit (e.g., a $500 discount on their LifeBox purchase). This creates a win-win scenario that encourages participation.</li>
+                            </ul>
+                            <h4 class="detail-heading">Simple Tracking & Management</h4>
+                            <p>Each ambassador will get a unique referral code and a personalized landing page link. We will use referral marketing software (e.g., Referral Factory, GrowSurf) integrated with our CRM to automate tracking and payouts, ensuring the program is easy to manage and transparent for participants.</p>
+                        `
                     },
                     direct: {
                         title: "The Formalized Direct Engagement Plan",
@@ -1305,10 +1184,6 @@
             ar: {
                 header: { title: "خطة نورنيشن 2025", subtitle: "الخطة الاستراتيجية المتكاملة للوصول إلى السوق: خارطة طريق للريادة الإقليمية والنمو المستدام" },
                 nav: { section1: "اللوحة الرئيسية", section2: "التحليل الاستراتيجي", section3: "الأهداف", section4: "المبيعات والتمويل", section5: "محرك التسويق", section6: "الاستراتيجية الميدانية", section7: "الأداء والمقاييس" },
-                gemini: {
-                    btn: { messaging: "توليد رسائل تسويقية", advise: "قدم نصيحة", linkedin: "توليد منشور لينكدإن", copy: "نسخ النص" },
-                    title: { persona: "رسائل تسويقية مولدة بالذكاء الاصطناعي لـ", threat: "تحليل تهديد مولد بالذكاء الاصطناعي لـ", linkedin: "منشور لينكدإن مولد بالذكاء الاصطناعي" }
-                },
                 section1: {
                     title: "القسم 1: لوحة المعلومات التنفيذية",
                      infographic: {
@@ -1325,16 +1200,34 @@
                     swot: { 
                         title: "2.1. تحليل SWOT المعزز",
                         tabs: { strengths: "نقاط القوة", weaknesses: "نقاط الضعف", opportunities: "الفرص", threats: "التهديدات" },
-                        strength1: "<strong>مصداقية معززة بالجوائز:</strong> الفوز في تحدي وصول الشارقة 2024 هو أداتنا الأساسية لدخول سوق الإمارات.",
-                        strength2: "<strong>تأثير مثبت وقابل للقياس:</strong> سجل حافل في مصر (22 وحدة LifeBox، ري 2,200 فدان، توفير 510,000 دولار).",
-                        strength3: "<strong>تفوق الحل المتكامل:</strong> LifeBox هو حل متكامل فريد ('Plug & Play') للطاقة والمياه.",
-                        weakness1: "<strong>برنامج إحالة غير فعال:</strong> النموذج الحالي القائم على 'إعادة البيع عبر طرف ثالث' يعاني من خلل هيكلي.",
-                        weakness2: "<strong>عرض تمويل غير متطور:</strong> 'النماذج المالية المرنة' تفتقر إلى الجوهر وتحتاج إلى برنامج واضح وقابل للتسويق.",
-                        opportunity1: "<strong>التوافق مع الاستراتيجيات الوطنية:</strong> التوافق التام مع استراتيجية الإمارات للأمن الغذائي 2051 والطاقة 2050.",
-                        opportunity2: "<strong>استغلال نقاط ضعف المنافسين:</strong> وجود رقمي محدود للمنافسين الإقليميين يخلق فرصة للهيمنة الرقمية.",
-                        opportunity3: "<strong>قطاعات سوقية غير مستغلة:</strong> فرص كبيرة في المملكة العربية السعودية ودول مجلس التعاون الخليجي الأخرى.",
-                        threat1: "<strong>جمود الحلول التقليدية:</strong> هيمنة مضخات الديزل يتطلب تسويقًا يركز على نقاط ضعفها.",
-                        threat2: "<strong>المنافسة السعرية:</strong> ضرورة تحويل الحوار من السعر إلى التكلفة الإجمالية للملكية (TCO) والعائد على الاستثمار (ROI)."
+                        strengths_detail: `
+                            <h4 class="detail-heading">مصداقية معززة بالجوائز</h4>
+                            <p>الفوز في تحدي وصول الشارقة 2024 ليس مجرد إنجاز؛ بل هو أداتنا الأساسية لدخول سوق الإمارات العربية المتحدة. فهو يوفر مصادقة فورية من طرف ثالث على ابتكارنا والتزامنا بالاستدامة، وهي قيمة أساسية في المنطقة. ستكون هذه الجائزة محور حملاتنا الإعلامية الأولية في الإمارات.</p>
+                            <h4 class="detail-heading">تأثير مثبت وقابل للقياس</h4>
+                            <p>سجلنا الحافل في مصر (نشر 22 وحدة LifeBox، ري 2200 فدان، تحلية 7 ملايين لتر من المياه، وتوفير 510,000 دولار) هو أقوى أصولنا التسويقية. توفر هذه البيانات الدليل الاجتماعي اللازم لقرارات الشراء في قطاع الأعمال.</p>
+                             <h4 class="detail-heading">تفوق الحل المتكامل</h4>
+                            <p>يعتبر LifeBox حلاً فريدًا ومتكاملًا "جاهزًا للتشغيل" لكل من الطاقة والمياه. وهذا يميزنا بشكل حاسم عن المنافسين الذين يقدمون منتجات مجزأة (ألواح شمسية أو مضخات مياه)، مما يفرض تحديات التكامل على العميل.</p>
+                        `,
+                        weaknesses_detail: `
+                            <h4 class="detail-heading">برنامج إحالة غير فعال</h4>
+                            <p>النموذج الحالي، المشار إليه بـ "(إعادة البيع عبر طرف ثالث)"، معيب هيكليًا. فهو يخلق وسيطًا ويفشل في تحفيز أقوى دعاتنا: العملاء الراضون. سيتم إصلاح هذا بالكامل.</p>
+                            <h4 class="detail-heading">عرض تمويل غير متطور</h4>
+                            <p>ذُكرت "النماذج المالية المرنة" كنقطة قوة لكنها تفتقر إلى الجوهر. بدون برنامج تمويل واضح وقابل للتسويق، تظل التكلفة الأولية المرتفعة لـ LifeBox حاجزًا رئيسيًا أمام المبيعات.</p>
+                        `,
+                        opportunities_detail: `
+                            <h4 class="detail-heading">التوافق مع الاستراتيجيات الوطنية</h4>
+                            <p>"استراتيجية الأمن الغذائي الوطنية 2051" و "استراتيجية الطاقة 2050" في الإمارات ليستا مجرد سياسات؛ بل هما محركات لخلق الأسواق. إنهما تعطيان الأولوية للتكنولوجيا الزراعية والإنتاج المحلي المستدام وتقليل الاعتماد على الاستيراد. يخدم LifeBox هذه الأهداف الوطنية مباشرة، مما يسمح لنا بوضع أنفسنا كشريك استراتيجي لحكومة الإمارات، وليس مجرد مورد.</p>
+                            <h4 class="detail-heading">استغلال نقاط ضعف المنافسين</h4>
+                            <p>يُظهر العديد من المنافسين الإقليميين "وجودًا رقميًا محدودًا أو غير مفصل". ستسمح لنا استراتيجية رقمية متطورة وغنية بالمحتوى بالهيمنة على المشهد الرقمي، والاستحواذ على الوعي وحصة السوق.</p>
+                             <h4 class="detail-heading">قطاعات سوقية غير مستغلة</h4>
+                            <p>منطقة الشرق الأوسط وشمال أفريقيا هي الأكثر ندرة في المياه في العالم. توجد فرص كبيرة في أسواق مثل المملكة العربية السعودية ودول مجلس التعاون الخليجي الأخرى حيث أصبحت تحلية المياه بالطاقة الشمسية ضرورة متزايدة.</p>
+                        `,
+                        threats_detail: `
+                            <h4 class="detail-heading">جمود الحلول التقليدية</h4>
+                            <p>مضخات الديزل هي الحل السائد. يجب أن يستهدف تسويقنا بقوة نقاط ضعفها: تكاليف الوقود المرتفعة والمتقلبة، والصيانة العالية، والتأثير البيئي السلبي.</p>
+                            <h4 class="detail-heading">المنافسة القائمة على السعر</h4>
+                            <p>مع نمو السوق، سيدخل منافسون جدد يتنافسون على السعر. يجب أن تحول استراتيجيتنا بشكل استباقي الحديث من السعر إلى التكلفة الإجمالية للملكية (TCO) والعائد على الاستثمار (ROI)، حيث يتمتع LifeBox بميزة واضحة.</p>
+                        `
                     },
                     personas: { title: "2.3. شخصيات الجمهور المستهدف", subtitle: "فهم عملائنا هو مفتاح النجاح. انقر على كل بطاقة للكشف عن دوافع وآلام ومكاسب شرائح جمهورنا الأساسية.", ahmed: { name: "'أحمد'", desc: "المزارع المصري الصغير", pain1: "إمدادات مياه غير موثوقة", pain2: "أسعار وقود متقلبة", pain3: "غلة محاصيل منخفضة", gain1: "أمن مائي", gain2: "تكاليف يمكن التنبؤ بها", gain3: "ربحية أعلى" }, fatima: { name: "'فاطمة'", desc: "مديرة الأعمال الزراعية في الإمارات", pain1: "تحقيق أهداف الأمن الغذائي الوطنية", pain2: "ندرة هائلة في المياه", pain3: "تكاليف طاقة عالية", gain1: "التوافق مع رؤية الإمارات 2051", gain2: "تحقيق مؤشرات أداء الاستدامة", gain3: "أمن الإنتاج طويل الأجل" }, david: { name: "'ديفيد'", desc: "مدير مشروع في منظمة غير حكومية/حكومية", pain1: "نشر الحلول في مناطق نائية", pain2: "ضمان استدامة المشاريع", pain3: "تقديم تقارير عن التأثير القابل للقياس", gain1: "نشر سهل وجاهز للتشغيل", gain2: "مقاييس تأثير واضحة (ESG)", gain3: "التوافق مع أهداف التنمية المستدامة" }, pains: "التحديات", gains: "المكاسب" }
                 },
@@ -1404,7 +1297,16 @@
                     },
                     referral: {
                         title: "برنامج السفراء والإحالة المجدد",
-                        text: "سيتم استبدال نموذج 'إعادة البيع' غير الفعال بـ'برنامج سفراء نورنيشن'. وهو برنامج حوافز مزدوج حيث يحصل كل من المُحيل (سفيرنا) والعميل الجديد على مكافأة كبيرة لكل عملية بيع ناجحة. سيتم تتبع ذلك باستخدام برامج تسويق الإحالة الاحترافية."
+                        detail: `
+                            <p>النموذج الحالي القائم على "إعادة البيع" غير فعال لأنه لا يستفيد من قوة البيع الأكثر مصداقية: العملاء الحاليون. يجب أن يكون البرنامج الناجح لمنتج عالي القيمة مفيدًا للطرفين، حيث يكافئ الداعم على ثقته والعميل الجديد على شرائه. سيتم إطلاق "برنامج سفراء نورنيشن" بالهيكل التالي:</p>
+                            <h4 class="detail-heading">حافز مزدوج الجانب</h4>
+                            <ul>
+                                <li><strong>السفير (المُحيل):</strong> يحصل على مكافأة مجزية عن كل عملية بيع ناجحة (على سبيل المثال، مكافأة نقدية بقيمة 500 دولار أو رصيد لصيانة مجانية لمدة عام واحد).</li>
+                                <li><strong>العميل الجديد (المُحال):</strong> يحصل على فائدة فورية (على سبيل المثال، خصم 500 دولار على شراء LifeBox). هذا يخلق سيناريو مربح للجانبين يشجع على المشاركة.</li>
+                            </ul>
+                            <h4 class="detail-heading">تتبع وإدارة بسيطة</h4>
+                            <p>سيحصل كل سفير على رمز إحالة فريد ورابط صفحة هبوط مخصص. سنستخدم برنامج تسويق بالإحالة (مثل Referral Factory أو GrowSurf) مدمج مع نظام إدارة علاقات العملاء (CRM) الخاص بنا لأتمتة التتبع والمدفوعات، مما يضمن سهولة إدارة البرنامج وشفافيته للمشاركين.</p>
+                        `
                     },
                     direct: {
                         title: "خطة المشاركة المباشرة الرسمية",
@@ -1543,33 +1445,6 @@
                 });
             });
 
-            // Gemini Modal Listeners
-            const modalOverlay = document.getElementById('gemini-modal-overlay');
-            const modalClose = document.getElementById('gemini-modal-close');
-            const copyBtn = document.getElementById('gemini-copy-btn');
-            
-            modalClose.addEventListener('click', () => modalOverlay.style.display = 'none');
-            modalOverlay.addEventListener('click', (e) => {
-                if (e.target === modalOverlay) {
-                    modalOverlay.style.display = 'none';
-                }
-            });
-            copyBtn.addEventListener('click', () => {
-                const output = document.getElementById('gemini-modal-output');
-                const tempTextArea = document.createElement('textarea');
-                tempTextArea.value = output.innerText;
-                document.body.appendChild(tempTextArea);
-                tempTextArea.select();
-                document.execCommand('copy');
-                document.body.removeChild(tempTextArea);
-                // Simple feedback
-                const lang = document.documentElement.lang;
-                const originalText = copyBtn.innerHTML;
-                copyBtn.innerHTML = lang === 'ar' ? 'تم النسخ!' : 'Copied!';
-                setTimeout(() => {
-                    copyBtn.innerHTML = originalText;
-                }, 1500);
-            });
         });
 
         function calculateROI() {
@@ -1609,111 +1484,6 @@
             }
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
-        }
-        
-        // --- Gemini API Integration ---
-        const modalOverlay = document.getElementById('gemini-modal-overlay');
-        const modalTitle = document.getElementById('gemini-modal-title');
-        const modalOutput = document.getElementById('gemini-modal-output');
-        const copyBtn = document.getElementById('gemini-copy-btn');
-        const apiKey = ""; // API key will be managed by the environment
-
-        function getPrompt(type, dataKey) {
-            const lang = document.documentElement.lang === 'ar' ? 'Arabic' : 'English';
-            
-            if (type === 'persona') {
-                const persona = translations.en.section2.personas[dataKey]; // Use English for consistent data structure
-                return `You are a marketing strategist for NoorNation, a company specializing in integrated solar-powered water and energy solutions for the MENA region. Your task is to generate compelling marketing messages for a specific customer persona.
-                    **Persona Details:**
-                    - Name: ${persona.name}
-                    - Description: ${persona.desc}
-                    - Pains: ${persona.pain1}, ${persona.pain2}, ${persona.pain3}
-                    - Gains: ${persona.gain1}, ${persona.gain2}, ${persona.gain3}
-                    **Instructions:**
-                    Based on the persona details, generate the following in ${lang}, using markdown for formatting:
-                    1.  **Key Marketing Message (Elevator Pitch):** A concise and powerful message that speaks directly to their primary need.
-                    2.  **Top 3 Talking Points:** Three bullet points for a sales conversation, highlighting how our solution solves their specific pains and delivers their desired gains.
-                    3.  **Call-to-Action Idea:** A suggested next step appropriate for this persona.`;
-            }
-
-            if (type === 'threat') {
-                const threatText = translations.en.section2.swot[dataKey].replace(/<[^>]*>/g, ''); // Use English and strip HTML
-                return `You are a strategic business consultant advising NoorNation, a company specializing in integrated solar water and energy solutions in the MENA region. You need to analyze a potential threat and propose mitigation strategies.
-                    **The Identified Threat:**
-                    "${threatText}"
-                    **Instructions:**
-                    In ${lang}, provide a concise analysis of this threat. Then, propose 3 actionable mitigation strategies NoorNation could implement to address it. Format the output clearly with a heading for the analysis and a bulleted list for the strategies, using markdown.`;
-            }
-
-            if (type === 'linkedin') {
-                return `You are a thought leader and CEO, Eng. Ragy Ramadan of NoorNation. Your company provides award-winning, integrated solar water and energy solutions in the MENA region. Your brand voice is authentic, insightful, and passionate about sustainability and empowering communities.
-                    **Core Information:**
-                    - Key Product: LifeBox, a 'plug-and-play' all-in-one system.
-                    - Key Differentiator: We solve both water and energy challenges with one integrated solution.
-                    - Recent Achievement: Won the Access Sharjah Challenge 2024.
-                    - Mission: Empower 1 million beneficiaries and support national goals like UAE's Food Security Strategy 2051.
-                    **Instructions:**
-                    Draft an engaging and authentic LinkedIn post (around 150-200 words) in ${lang}. The post should:
-                    - Start with a strong hook that grabs attention.
-                    - Share an insight about the challenges of water scarcity or energy costs in the region.
-                    - Subtly introduce NoorNation's solution as the answer.
-                    - End with an open-ended question to encourage engagement.
-                    - Include 3-4 relevant hashtags like #Sustainability, #AgriTech, #MENA, #SolarEnergy, #WaterScarcity.`;
-            }
-            return '';
-        }
-
-        async function generateContent(type, dataKey = '') {
-            const lang = document.documentElement.lang;
-            modalOverlay.style.display = 'flex';
-            modalOutput.innerHTML = '<div class="loading-spinner"></div>';
-            copyBtn.style.display = 'none';
-
-            let titleText = translations[lang].gemini.title[type];
-            if (type === 'persona') {
-                titleText += ` ${translations[lang].section2.personas[dataKey].name}`;
-            } else if (type === 'threat') {
-                const threatSpan = document.querySelector(`[data-translate="section2.swot.${dataKey}"]`);
-                titleText += ` "${threatSpan.innerText.split(':')[0]}"`;
-            }
-            modalTitle.innerText = titleText;
-            
-            const prompt = getPrompt(type, dataKey);
-            if (!prompt) {
-                modalOutput.innerText = 'Error: Could not generate prompt.';
-                return;
-            }
-            
-            try {
-                let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-                const payload = { contents: chatHistory };
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-                
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                
-                if (!response.ok) {
-                    const errorBody = await response.json();
-                    throw new Error(`API Error (${response.status}): ${errorBody.error.message}`);
-                }
-
-                const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content) {
-                    const text = result.candidates[0].content.parts[0].text;
-                    modalOutput.innerText = text; 
-                    copyBtn.style.display = 'inline-flex';
-                } else {
-                     modalOutput.innerText = "No content was generated. The response may have been blocked due to safety policies or other reasons. Please check the console for details.";
-                     console.log("Full API Response:", result);
-                }
-            } catch (error) {
-                console.error('Gemini API Error:', error);
-                modalOutput.innerText = `Error: Could not fetch response from AI. \n\nDetails: ${error.message}`;
-            }
         }
     </script>
 </body>
