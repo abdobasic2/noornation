@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NoorNation 2025: The Complete Go-to-Market Strategy</title>
+    <title>NoorNation 2025: AI-Enhanced Go-to-Market Strategy</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -244,10 +244,48 @@
             transform-style: preserve-3d;
         }
         .card:hover {
-            transform: translateY(-10px) rotateY(1deg) rotateX(2deg);
-            box-shadow: 0 12px 30px rgba(0, 168, 107, 0.15);
-            border-color: var(--secondary-color);
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
         }
+
+        /* Infographic Overview */
+        .infographic-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .info-card {
+            background: linear-gradient(145deg, #e6eef2, #ffffff);
+            padding: 2rem 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 51, 102, 0.08);
+            border-top: 4px solid var(--secondary-color);
+            transition: all 0.3s ease-in-out;
+        }
+        .info-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(0, 168, 107, 0.15);
+        }
+        .info-card i {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .info-card h4 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .info-card p {
+            font-size: 1rem;
+            color: var(--text-color);
+            line-height: 1.5;
+        }
+
 
         /* SWOT Tabs styles */
         .swot-container .tabs-container {
@@ -288,14 +326,22 @@
         }
         .swot-container .tab-content {
             display: none;
-            background: var(--white);
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: var(--card-shadow);
+            padding: 1rem 0 0 0;
         }
         .swot-container .tab-content.active {
             display: block;
             animation: fadeIn 0.5s;
+        }
+        
+        .threat-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        .threat-item span {
+            flex-grow: 1;
         }
 
         /* Persona Section */
@@ -306,15 +352,15 @@
         }
         .persona-card {
             perspective: 1000px;
+            cursor: pointer;
         }
         .persona-card-inner {
             position: relative;
             width: 100%;
-            min-height: 400px;
+            min-height: 450px; /* Increased height for the new button */
             text-align: center;
             transition: transform 0.8s;
             transform-style: preserve-3d;
-            cursor: pointer;
             border-radius: 15px;
             box-shadow: var(--card-shadow);
         }
@@ -329,11 +375,16 @@
             backface-visibility: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between; /* Adjusted for button */
             align-items: center;
             padding: 2rem;
             border-radius: 15px;
         }
+        .persona-card-front-content, .persona-card-back-content {
+            width: 100%;
+            text-align: center;
+        }
+
         .persona-card-front {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
@@ -350,12 +401,16 @@
             background-color: var(--white);
             color: var(--text-color);
             transform: rotateY(180deg);
-            text-align: left;
             align-items: flex-start;
         }
         body.rtl .persona-card-back {
-            text-align: right;
             align-items: flex-end;
+        }
+        .persona-card-back-content {
+             text-align: left;
+        }
+        body.rtl .persona-card-back-content {
+            text-align: right;
         }
         .persona-card-back h5 {
             font-size: 1.1rem;
@@ -396,14 +451,12 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        #competitor-chart-container { max-width: 600px; margin: 1rem auto 3rem auto; }
-        
-        #kpi-section { background-color: var(--primary-color); color: var(--white); }
-        #kpi-section h2, #kpi-section h3 { color: var(--white); }
+        .kpi-section { background-color: var(--primary-color); color: var(--white); }
+        .kpi-section h2, .kpi-section h3 { color: var(--white); }
         .kpi-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
         .kpi-card { background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease; }
         .kpi-card:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.05); }
-        .kpi-card h4 { font-size: 1.2rem; color: var(--light-gray); margin-bottom: 1rem; font-weight: 400;}
+        .kpi-card h4 { font-size: 1.2rem; color: var(--light-gray); margin-bottom: 1rem; font-weight: 400; min-height: 40px;}
         .kpi-value { font-size: 3rem; font-weight: 700; color: var(--accent-color); }
         .kpi-target { font-size: 1rem; color: var(--light-gray); opacity: 0.8; }
         
@@ -418,14 +471,18 @@
         body.rtl .accordion-header i.icon-header { margin-right: 0; margin-left: 10px; }
         .accordion-item.active .accordion-header .icon { transform: rotate(180deg); }
         .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), padding 0.5s ease-out; padding: 0 1.5rem; }
-        .accordion-content .content-inner { padding: 1.5rem 0; border-top: 1px solid var(--light-gray); }
+        .accordion-content .content-inner { 
+            padding: 1.5rem 0; 
+            border-top: 1px solid var(--light-gray); 
+            color: var(--text-color); /* FIX: Set text color for visibility on white background */
+        }
         
         .roi-calculator { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; margin-top: 2rem;}
         .roi-calculator .form-group { margin-bottom: 1rem; }
         .roi-calculator label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
         .roi-calculator input, .roi-calculator select { width: 100%; padding: 0.75rem; border-radius: 8px; border: 1px solid var(--light-gray); font-size: 1rem;}
-        .roi-calculator button { background-color: var(--secondary-color); color: var(--white); border: none; padding: 1rem 2rem; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: background-color 0.3s; width: 100%; margin-top: 1rem;}
-        .roi-calculator button:hover { background-color: #008a59; }
+        .roi-calculator button:not(.gemini-btn) { background-color: var(--secondary-color); color: var(--white); border: none; padding: 1rem 2rem; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: 600; transition: background-color 0.3s; width: 100%; margin-top: 1rem;}
+        .roi-calculator button:not(.gemini-btn):hover { background-color: #008a59; }
         .roi-results h4 { color: var(--primary-color); margin-bottom: 1rem; }
         .roi-results p { font-size: 1.2rem; margin-bottom: 0.8rem; }
         .roi-results .highlight { font-weight: 700; color: var(--secondary-color); font-size: 1.5rem; }
@@ -436,6 +493,101 @@
         th { background-color: var(--primary-color); color: var(--white); font-weight: 600;}
         tr:nth-child(even) { background-color: #f9f9f9; }
         .table-container { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+        
+        /* Gemini API Feature Styles */
+        .gemini-btn {
+            background: linear-gradient(45deg, var(--accent-color), #ffc107);
+            color: var(--primary-color);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 1rem;
+        }
+        .gemini-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(255, 165, 0, 0.4);
+        }
+        .gemini-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .gemini-modal {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 700px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideIn 0.4s ease-out;
+        }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gemini-modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.8rem;
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        body.rtl .gemini-modal-close {
+            right: auto;
+            left: 20px;
+        }
+        .gemini-modal-close:hover {
+            color: var(--primary-color);
+        }
+        .gemini-modal h3 {
+            margin-top: 0;
+        }
+        .gemini-output {
+            background-color: var(--background-color);
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            white-space: pre-wrap;
+            font-family: inherit;
+            min-height: 150px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .loading-spinner {
+            border: 4px solid var(--light-gray);
+            border-top: 4px solid var(--secondary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 2rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
 
         @media screen and (max-width: 992px) {
             nav ul { justify-content: flex-start; overflow-x: auto; padding: 0 1rem;}
@@ -451,6 +603,7 @@
             header h1 { font-size: 2.5rem; }
             header p { font-size: 1.1rem; }
             section { padding: 60px 20px; }
+            .threat-item { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -485,6 +638,26 @@
         <section id="section1">
             <div class="container">
                 <h2 data-translate="section1.title">Section 1: Executive Dashboard</h2>
+                
+                <!-- NEW: Infographic Overview -->
+                <div class="infographic-overview">
+                    <div class="info-card">
+                        <i class="fas fa-users"></i>
+                        <h4 data-translate="section1.infographic.card1.title">Empower 1M+ People</h4>
+                        <p data-translate="section1.infographic.card1.text">Provide sustainable access to clean water and energy, driving community resilience and food security.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h4 data-translate="section1.infographic.card2.title">Lead the MENA Region</h4>
+                        <p data-translate="section1.infographic.card2.text">Become the go-to expert for integrated solar solutions, starting with strategic entry into Egypt and the UAE.</p>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h4 data-translate="section1.infographic.card3.title">Drive High-Value Growth</h4>
+                        <p data-translate="section1.infographic.card3.text">Target 20 high-value sales contracts by leveraging our superior technology and financing models.</p>
+                    </div>
+                </div>
+
                 <div class="card">
                     <h3 data-translate="section1.visionMission.title">1.1. 2025 Vision & Mission</h3>
                     <p><strong data-translate="section1.visionMission.vision.label">Vision:</strong> <span data-translate="section1.visionMission.vision.text">To be the indisputable leader and go-to expert for integrated, solar-powered water and energy solutions in the MENA region, starting with Egypt and the UAE.</span></p>
@@ -556,8 +729,14 @@
                      <div id="Threats" class="tab-content">
                         <h4 data-translate="section2.swot.tabs.threats">Threats</h4>
                         <ul>
-                            <li data-translate="section2.swot.threat1"><strong>Inertia of Traditional Solutions:</strong> Dominance of diesel pumps requires marketing focused on their vulnerabilities.</li>
-                            <li data-translate="section2.swot.threat2"><strong>Price-Based Competition:</strong> Need to shift the conversation from price to Total Cost of Ownership (TCO) and ROI.</li>
+                            <li class="threat-item">
+                                <span data-translate="section2.swot.threat1"><strong>Inertia of Traditional Solutions:</strong> Dominance of diesel pumps requires marketing focused on their vulnerabilities.</span>
+                                <button class="gemini-btn" onclick="generateContent('threat', 'threat1')">✨ <span data-translate="gemini.btn.advise">Advise</span></button>
+                            </li>
+                            <li class="threat-item">
+                                <span data-translate="section2.swot.threat2"><strong>Price-Based Competition:</strong> Need to shift the conversation from price to Total Cost of Ownership (TCO) and ROI.</span>
+                                <button class="gemini-btn" onclick="generateContent('threat', 'threat2')">✨ <span data-translate="gemini.btn.advise">Advise</span></button>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -565,48 +744,66 @@
                      <h3 data-translate="section2.personas.title">2.3. Target Audience Personas</h3>
                      <p data-translate="section2.personas.subtitle">Understanding our customers is key. Click on each card to reveal the motivations, pains, and gains of our core audience segments.</p>
                      <div class="personas-container">
-                        <div class="persona-card">
+                        <div class="persona-card" onclick="this.querySelector('.persona-card-inner').style.transform = this.querySelector('.persona-card-inner').style.transform === 'rotateY(180deg)' ? '' : 'rotateY(180deg)'">
                             <div class="persona-card-inner">
                                 <div class="persona-card-front">
-                                    <i class="fas fa-leaf"></i>
-                                    <h4 data-translate="section2.personas.ahmed.name">"Ahmed"</h4>
-                                    <p data-translate="section2.personas.ahmed.desc">The Small-Scale Egyptian Farmer</p>
+                                    <div class="persona-card-front-content">
+                                        <i class="fas fa-leaf"></i>
+                                        <h4 data-translate="section2.personas.ahmed.name">"Ahmed"</h4>
+                                        <p data-translate="section2.personas.ahmed.desc">The Small-Scale Egyptian Farmer</p>
+                                    </div>
+                                    <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'ahmed')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                                 <div class="persona-card-back">
-                                    <h5 data-translate="section2.personas.pains">Pains</h5>
-                                    <ul><li data-translate="section2.personas.ahmed.pain1">Unreliable water supply</li><li data-translate="section2.personas.ahmed.pain2">Volatile fuel prices</li><li data-translate="section2.personas.ahmed.pain3">Low crop yields</li></ul>
-                                    <h5 data-translate="section2.personas.gains">Gains</h5>
-                                    <ul><li data-translate="section2.personas.ahmed.gain1">Water security</li><li data-translate="section2.personas.ahmed.gain2">Predictable costs</li><li data-translate="section2.personas.ahmed.gain3">Higher profitability</li></ul>
+                                    <div class="persona-card-back-content">
+                                        <h5 data-translate="section2.personas.pains">Pains</h5>
+                                        <ul><li data-translate="section2.personas.ahmed.pain1">Unreliable water supply</li><li data-translate="section2.personas.ahmed.pain2">Volatile fuel prices</li><li data-translate="section2.personas.ahmed.pain3">Low crop yields</li></ul>
+                                        <h5 data-translate="section2.personas.gains">Gains</h5>
+                                        <ul><li data-translate="section2.personas.ahmed.gain1">Water security</li><li data-translate="section2.personas.ahmed.gain2">Predictable costs</li><li data-translate="section2.personas.ahmed.gain3">Higher profitability</li></ul>
+                                    </div>
+                                     <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'ahmed')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                             </div>
                         </div>
-                        <div class="persona-card">
+                        <div class="persona-card" onclick="this.querySelector('.persona-card-inner').style.transform = this.querySelector('.persona-card-inner').style.transform === 'rotateY(180deg)' ? '' : 'rotateY(180deg)'">
                             <div class="persona-card-inner">
                                 <div class="persona-card-front">
-                                    <i class="fas fa-building"></i>
-                                    <h4 data-translate="section2.personas.fatima.name">"Fatima"</h4>
-                                    <p data-translate="section2.personas.fatima.desc">The UAE Agri-Business Manager</p>
+                                    <div class="persona-card-front-content">
+                                        <i class="fas fa-building"></i>
+                                        <h4 data-translate="section2.personas.fatima.name">"Fatima"</h4>
+                                        <p data-translate="section2.personas.fatima.desc">The UAE Agri-Business Manager</p>
+                                    </div>
+                                    <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'fatima')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                                 <div class="persona-card-back">
-                                     <h5 data-translate="section2.personas.pains">Pains</h5>
-                                     <ul><li data-translate="section2.personas.fatima.pain1">Meeting national food security targets</li><li data-translate="section2.personas.fatima.pain2">Extreme water scarcity</li><li data-translate="section2.personas.fatima.pain3">High energy costs</li></ul>
-                                     <h5 data-translate="section2.personas.gains">Gains</h5>
-                                     <ul><li data-translate="section2.personas.fatima.gain1">Alignment with UAE Vision 2051</li><li data-translate="section2.personas.fatima.gain2">Achieving sustainability KPIs</li><li data-translate="section2.personas.fatima.gain3">Long-term production security</li></ul>
+                                     <div class="persona-card-back-content">
+                                        <h5 data-translate="section2.personas.pains">Pains</h5>
+                                        <ul><li data-translate="section2.personas.fatima.pain1">Meeting national food security targets</li><li data-translate="section2.personas.fatima.pain2">Extreme water scarcity</li><li data-translate="section2.personas.fatima.pain3">High energy costs</li></ul>
+                                        <h5 data-translate="section2.personas.gains">Gains</h5>
+                                        <ul><li data-translate="section2.personas.fatima.gain1">Alignment with UAE Vision 2051</li><li data-translate="section2.personas.fatima.gain2">Achieving sustainability KPIs</li><li data-translate="section2.personas.fatima.gain3">Long-term production security</li></ul>
+                                     </div>
+                                      <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'fatima')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                             </div>
                         </div>
-                        <div class="persona-card">
+                        <div class="persona-card" onclick="this.querySelector('.persona-card-inner').style.transform = this.querySelector('.persona-card-inner').style.transform === 'rotateY(180deg)' ? '' : 'rotateY(180deg)'">
                              <div class="persona-card-inner">
                                 <div class="persona-card-front">
-                                    <i class="fas fa-globe-africa"></i>
-                                    <h4 data-translate="section2.personas.david.name">"David"</h4>
-                                    <p data-translate="section2.personas.david.desc">The NGO/Gov Project Manager</p>
+                                    <div class="persona-card-front-content">
+                                        <i class="fas fa-globe-africa"></i>
+                                        <h4 data-translate="section2.personas.david.name">"David"</h4>
+                                        <p data-translate="section2.personas.david.desc">The NGO/Gov Project Manager</p>
+                                    </div>
+                                    <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'david')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                                 <div class="persona-card-back">
-                                     <h5 data-translate="section2.personas.pains">Pains</h5>
-                                     <ul><li data-translate="section2.personas.david.pain1">Deploying solutions in remote areas</li><li data-translate="section2.personas.david.pain2">Ensuring project sustainability</li><li data-translate="section2.personas.david.pain3">Reporting quantifiable impact</li></ul>
-                                     <h5 data-translate="section2.personas.gains">Gains</h5>
-                                     <ul><li data-translate="section2.personas.david.gain1">'Plug & Play' easy deployment</li><li data-translate="section2.personas.david.gain2">Clear ESG impact metrics</li><li data-translate="section2.personas.david.gain3">Alignment with SDGs</li></ul>
+                                     <div class="persona-card-back-content">
+                                        <h5 data-translate="section2.personas.pains">Pains</h5>
+                                        <ul><li data-translate="section2.personas.david.pain1">Deploying solutions in remote areas</li><li data-translate="section2.personas.david.pain2">Ensuring project sustainability</li><li data-translate="section2.personas.david.pain3">Reporting quantifiable impact</li></ul>
+                                        <h5 data-translate="section2.personas.gains">Gains</h5>
+                                        <ul><li data-translate="section2.personas.david.gain1">'Plug & Play' easy deployment</li><li data-translate="section2.personas.david.gain2">Clear ESG impact metrics</li><li data-translate="section2.personas.david.gain3">Alignment with SDGs</li></ul>
+                                     </div>
+                                     <button class="gemini-btn" onclick="event.stopPropagation(); generateContent('persona', 'david')">✨ <span data-translate="gemini.btn.messaging">Generate Messaging</span></button>
                                 </div>
                             </div>
                         </div>
@@ -763,7 +960,10 @@
                      <div class="accordion-item">
                         <div class="accordion-header"><i class="fab fa-linkedin icon-header"></i> <span data-translate="section5.social.title">B2B Social Media Dominance (LinkedIn-First)</span> <span class="icon fas fa-chevron-down"></span></div>
                         <div class="accordion-content">
-                            <div class="content-inner"><p data-translate="section5.social.text">In high-trust B2B sales, the personal brand of the founder/CEO is a tremendous asset. The primary LinkedIn focus will shift from the company page to Eng. Ragy Ramadan's profile, sharing authentic stories, industry insights, and behind-the-scenes content to build credibility.</p></div>
+                            <div class="content-inner">
+                                <p data-translate="section5.social.text">In high-trust B2B sales, the personal brand of the founder/CEO is a tremendous asset. The primary LinkedIn focus will shift from the company page to Eng. Ragy Ramadan's profile, sharing authentic stories, industry insights, and behind-the-scenes content to build credibility.</p>
+                                <button class="gemini-btn" onclick="generateContent('linkedin')">✨ <span data-translate="gemini.btn.linkedin">Generate LinkedIn Post</span></button>
+                            </div>
                         </div>
                     </div>
                      <div class="accordion-item">
@@ -953,7 +1153,7 @@
                         <div class="accordion-header" style="background: #003366; color: var(--white);"><i class="fas fa-sync-alt icon-header"></i> <span data-translate="section7.qbr.title">Quarterly Business Review (QBR) Cadence</span> <span class="icon fas fa-chevron-down"></span></div>
                         <div class="accordion-content">
                             <div class="content-inner">
-                                <p data-translate="section7.qbr.text">To ensure the plan remains a living document, a formal quarterly review process will be established. The leadership, marketing, and sales teams will meet to review performance vs. KPIs, analyze successes and challenges, re-allocate budget to high-performing channels, and confirm priorities for the next quarter. This agile approach ensures the marketing plan allows for continuous optimization.</p>
+                                <p data-translate="section7.qbr.text">To ensure the plan remains a living document that adapts to market variables, a formal quarterly review process will be established. This QBR meeting is for leadership, marketing, and sales to review performance against the KPI dashboard, analyze successes and challenges, and make agile decisions to re-allocate budget and confirm priorities for the upcoming quarter. This process, derived from the core strategy, ensures continuous optimization and responsiveness.</p>
                             </div>
                         </div>
                     </div>
@@ -962,13 +1162,35 @@
         </section>
     </main>
 
+    <!-- Gemini Modal -->
+    <div id="gemini-modal-overlay" class="gemini-modal-overlay">
+        <div id="gemini-modal" class="gemini-modal">
+            <span id="gemini-modal-close" class="gemini-modal-close">&times;</span>
+            <h3 id="gemini-modal-title"></h3>
+            <div id="gemini-modal-output" class="gemini-output">
+                <!-- Content will be injected here -->
+            </div>
+            <button id="gemini-copy-btn" class="gemini-btn" style="display: none;"><i class="fas fa-copy"></i> <span data-translate="gemini.btn.copy">Copy Text</span></button>
+        </div>
+    </div>
+
+
     <script>
         const translations = {
             en: {
                 header: { title: "NoorNation 2025", subtitle: "The Integrated Go-to-Market Strategy: A Roadmap for Regional Leadership and Sustainable Growth" },
                 nav: { section1: "Dashboard", section2: "Strategic Analysis", section3: "Objectives", section4: "Sales & Financing", section5: "Marketing Engine", section6: "Field Strategy", section7: "Performance & KPIs" },
+                gemini: {
+                    btn: { messaging: "Generate Messaging", advise: "Advise", linkedin: "Generate LinkedIn Post", copy: "Copy Text" },
+                    title: { persona: "AI-Generated Messaging for", threat: "AI-Generated Threat Analysis for", linkedin: "AI-Generated LinkedIn Post" }
+                },
                 section1: {
                     title: "Section 1: Executive Dashboard",
+                    infographic: {
+                        card1: { title: "Empower 1M+ People", text: "Provide sustainable access to clean water and energy, driving community resilience and food security." },
+                        card2: { title: "Lead the MENA Region", text: "Become the go-to expert for integrated solar solutions, starting with strategic entry into Egypt and the UAE." },
+                        card3: { title: "Drive High-Value Growth", text: "Target 20 high-value sales contracts by leveraging our superior technology and financing models." }
+                    },
                     visionMission: { title: "1.1. 2025 Vision & Mission", vision: { label: "Vision:", text: "To be the indisputable leader and go-to expert for integrated, solar-powered water and energy solutions in the MENA region, starting with Egypt and the UAE." }, mission: { label: "Mission:", text: "To empower one million beneficiaries by providing sustainable, reliable, and cost-effective access to clean water and energy, thereby driving agricultural productivity, food security, and community resilience." } },
                     glance: { title: "1.2. Core Strategic Objectives (At a Glance)"},
                     kpi: { impressions: "Brand Dominance", leads: "Lead & Sales Engine", sales: "UAE Market Penetration", engagement: "Community & Engagement", impressions_target: "Brand Impressions", leads_target: "Qualified Leads", sales_target: "Key UAE Contracts", engagement_target: "Engagement Rate" }
@@ -1075,7 +1297,7 @@
                     },
                     qbr: {
                         title: "Quarterly Business Review (QBR) Cadence",
-                        text: "To ensure the plan remains a living document, a formal quarterly review process will be established. The leadership, marketing, and sales teams will meet to review performance vs. KPIs, analyze successes and challenges, re-allocate budget to high-performing channels, and confirm priorities for the next quarter. This agile approach ensures the marketing plan allows for continuous optimization."
+                        text: "To ensure the plan remains a living document that adapts to market variables, a formal quarterly review process will be established. This QBR meeting is for leadership, marketing, and sales to review performance against the KPI dashboard, analyze successes and challenges, and make agile decisions to re-allocate budget and confirm priorities for the upcoming quarter. This process, derived from the core strategy, ensures continuous optimization and responsiveness."
                     },
                     chartTitle: 'Quarterly Progress Towards Key Goals'
                 }
@@ -1083,8 +1305,17 @@
             ar: {
                 header: { title: "خطة نورنيشن 2025", subtitle: "الخطة الاستراتيجية المتكاملة للوصول إلى السوق: خارطة طريق للريادة الإقليمية والنمو المستدام" },
                 nav: { section1: "اللوحة الرئيسية", section2: "التحليل الاستراتيجي", section3: "الأهداف", section4: "المبيعات والتمويل", section5: "محرك التسويق", section6: "الاستراتيجية الميدانية", section7: "الأداء والمقاييس" },
+                gemini: {
+                    btn: { messaging: "توليد رسائل تسويقية", advise: "قدم نصيحة", linkedin: "توليد منشور لينكدإن", copy: "نسخ النص" },
+                    title: { persona: "رسائل تسويقية مولدة بالذكاء الاصطناعي لـ", threat: "تحليل تهديد مولد بالذكاء الاصطناعي لـ", linkedin: "منشور لينكدإن مولد بالذكاء الاصطناعي" }
+                },
                 section1: {
                     title: "القسم 1: لوحة المعلومات التنفيذية",
+                     infographic: {
+                        card1: { title: "تمكين أكثر من مليون شخص", text: "توفير وصول مستدام للمياه النظيفة والطاقة، مما يعزز صمود المجتمعات والأمن الغذائي." },
+                        card2: { title: "قيادة منطقة الشرق الأوسط", text: "أن نصبح الخبير المرجعي للحلول الشمسية المتكاملة، بدءاً بالدخول الاستراتيجي إلى مصر والإمارات." },
+                        card3: { title: "تحقيق نمو عالي القيمة", text: "استهداف 20 عقد بيع عالي القيمة من خلال الاستفادة من تقنيتنا المتفوقة ونماذجنا التمويلية." }
+                    },
                     visionMission: { title: "1.1. رؤية ورسالة 2025", vision: { label: "الرؤية:", text: "أن نكون الشركة الرائدة والخبير المرجعي في حلول المياه والطاقة المتكاملة التي تعمل بالطاقة الشمسية في منطقة الشرق الأوسط وشمال أفريقيا، بدءًا من مصر والإمارات." }, mission: { label: "الرسالة:", text: "تمكين مليون مستفيد من خلال توفير وصول مستدام وموثوق وفعال من حيث التكلفة للمياه النظيفة والطاقة، مما يدفع الإنتاجية الزراعية والأمن الغذائي ومرونة المجتمعات." } },
                     glance: { title: "1.2. الأهداف الاستراتيجية الأساسية (نظرة سريعة)"},
                     kpi: { impressions: "الهيمنة على العلامة التجارية", leads: "محرك العملاء والمبيعات", sales: "اختراق السوق الإماراتي", engagement: "المجتمع والتفاعل", impressions_target: "انطباع للعلامة التجارية", leads_target: "عميل محتمل مؤهل", sales_target: "عقود رئيسية في الإمارات", engagement_target: "معدل التفاعل" }
@@ -1195,7 +1426,7 @@
                     },
                     qbr: {
                         title: "إيقاع المراجعة ربع السنوية للأعمال (QBR)",
-                        text: "لضمان بقاء الخطة وثيقة حية، سيتم إنشاء عملية مراجعة ربع سنوية رسمية. ستجتمع فرق القيادة والتسويق والمبيعات لمراجعة الأداء مقابل مؤشرات الأداء الرئيسية، وتحليل النجاحات والتحديات، وإعادة تخصيص الميزانية للقنوات عالية الأداء، وتأكيد أولويات الربع القادم. يضمن هذا النهج المرن أن تسمح خطة التسويق بالتحسين المستمر."
+                        text: "لضمان بقاء الخطة وثيقة حية تتكيف مع متغيرات السوق، سيتم إنشاء عملية مراجعة ربع سنوية رسمية. اجتماع المراجعة هذا مخصص للقيادة والتسويق والمبيعات لمراجعة الأداء مقابل لوحة مؤشرات الأداء الرئيسية، وتحليل النجاحات والتحديات، واتخاذ قرارات مرنة لإعادة تخصيص الميزانية وتأكيد أولويات الربع القادم. تضمن هذه العملية، المستمدة من الاستراتيجية الأساسية، التحسين المستمر والاستجابة."
                     },
                     chartTitle: 'التقدم المحرز نحو الأهداف ربع السنوية'
                 }
@@ -1211,22 +1442,6 @@
                 const translation = key.split('.').reduce((obj, i) => obj && obj[i] ? obj[i] : null, translations[lang]);
                 if (translation && typeof translation === 'string') {
                     el.innerHTML = translation;
-                }
-            });
-
-            document.querySelectorAll('[data-translate-options]').forEach(select => {
-                const key = select.getAttribute('data-translate-options');
-                const options = key.split('.').reduce((obj, i) => obj[i] || {}, translations[lang]);
-                if(options) {
-                    const currentVal = select.value;
-                    select.innerHTML = '';
-                    for(const [value, text] of Object.entries(options)) {
-                        const option = document.createElement('option');
-                        option.value = value;
-                        option.textContent = text;
-                        select.appendChild(option);
-                    }
-                    select.value = currentVal;
                 }
             });
 
@@ -1250,7 +1465,6 @@
             const preferredLanguage = localStorage.getItem('preferredLanguage') || 'en';
             switchLanguage(preferredLanguage);
             
-            // Observers, Charts, etc.
             const kpiCtx = document.getElementById('kpiChart')?.getContext('2d');
             
             const kpiData = {
@@ -1310,7 +1524,7 @@
                 };
                 window.requestAnimationFrame(step);
             }
-            document.querySelectorAll('.kpi-value, .persona-card, .accordion-item').forEach(el => observer.observe(el));
+            document.querySelectorAll('.kpi-value, .info-card, .accordion-item').forEach(el => observer.observe(el));
             
             const accordionItems = document.querySelectorAll('.accordion-item');
             accordionItems.forEach(item => {
@@ -1319,18 +1533,42 @@
                     const content = item.querySelector('.accordion-content');
                     const wasActive = item.classList.contains('active');
                     
-                    accordionItems.forEach(i => {
-                        if (i.classList.contains('active')) {
-                            i.classList.remove('active');
-                            i.querySelector('.accordion-content').style.maxHeight = '0';
-                        }
-                    });
-
                     if (!wasActive) {
                        item.classList.add('active');
                        content.style.maxHeight = content.scrollHeight + 'px';
+                    } else {
+                        item.classList.remove('active');
+                        content.style.maxHeight = '0';
                     }
                 });
+            });
+
+            // Gemini Modal Listeners
+            const modalOverlay = document.getElementById('gemini-modal-overlay');
+            const modalClose = document.getElementById('gemini-modal-close');
+            const copyBtn = document.getElementById('gemini-copy-btn');
+            
+            modalClose.addEventListener('click', () => modalOverlay.style.display = 'none');
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    modalOverlay.style.display = 'none';
+                }
+            });
+            copyBtn.addEventListener('click', () => {
+                const output = document.getElementById('gemini-modal-output');
+                const tempTextArea = document.createElement('textarea');
+                tempTextArea.value = output.innerText;
+                document.body.appendChild(tempTextArea);
+                tempTextArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempTextArea);
+                // Simple feedback
+                const lang = document.documentElement.lang;
+                const originalText = copyBtn.innerHTML;
+                copyBtn.innerHTML = lang === 'ar' ? 'تم النسخ!' : 'Copied!';
+                setTimeout(() => {
+                    copyBtn.innerHTML = originalText;
+                }, 1500);
             });
         });
 
@@ -1371,6 +1609,111 @@
             }
             document.getElementById(tabName).classList.add("active");
             evt.currentTarget.classList.add("active");
+        }
+        
+        // --- Gemini API Integration ---
+        const modalOverlay = document.getElementById('gemini-modal-overlay');
+        const modalTitle = document.getElementById('gemini-modal-title');
+        const modalOutput = document.getElementById('gemini-modal-output');
+        const copyBtn = document.getElementById('gemini-copy-btn');
+        const apiKey = ""; // API key will be managed by the environment
+
+        function getPrompt(type, dataKey) {
+            const lang = document.documentElement.lang === 'ar' ? 'Arabic' : 'English';
+            
+            if (type === 'persona') {
+                const persona = translations.en.section2.personas[dataKey]; // Use English for consistent data structure
+                return `You are a marketing strategist for NoorNation, a company specializing in integrated solar-powered water and energy solutions for the MENA region. Your task is to generate compelling marketing messages for a specific customer persona.
+                    **Persona Details:**
+                    - Name: ${persona.name}
+                    - Description: ${persona.desc}
+                    - Pains: ${persona.pain1}, ${persona.pain2}, ${persona.pain3}
+                    - Gains: ${persona.gain1}, ${persona.gain2}, ${persona.gain3}
+                    **Instructions:**
+                    Based on the persona details, generate the following in ${lang}, using markdown for formatting:
+                    1.  **Key Marketing Message (Elevator Pitch):** A concise and powerful message that speaks directly to their primary need.
+                    2.  **Top 3 Talking Points:** Three bullet points for a sales conversation, highlighting how our solution solves their specific pains and delivers their desired gains.
+                    3.  **Call-to-Action Idea:** A suggested next step appropriate for this persona.`;
+            }
+
+            if (type === 'threat') {
+                const threatText = translations.en.section2.swot[dataKey].replace(/<[^>]*>/g, ''); // Use English and strip HTML
+                return `You are a strategic business consultant advising NoorNation, a company specializing in integrated solar water and energy solutions in the MENA region. You need to analyze a potential threat and propose mitigation strategies.
+                    **The Identified Threat:**
+                    "${threatText}"
+                    **Instructions:**
+                    In ${lang}, provide a concise analysis of this threat. Then, propose 3 actionable mitigation strategies NoorNation could implement to address it. Format the output clearly with a heading for the analysis and a bulleted list for the strategies, using markdown.`;
+            }
+
+            if (type === 'linkedin') {
+                return `You are a thought leader and CEO, Eng. Ragy Ramadan of NoorNation. Your company provides award-winning, integrated solar water and energy solutions in the MENA region. Your brand voice is authentic, insightful, and passionate about sustainability and empowering communities.
+                    **Core Information:**
+                    - Key Product: LifeBox, a 'plug-and-play' all-in-one system.
+                    - Key Differentiator: We solve both water and energy challenges with one integrated solution.
+                    - Recent Achievement: Won the Access Sharjah Challenge 2024.
+                    - Mission: Empower 1 million beneficiaries and support national goals like UAE's Food Security Strategy 2051.
+                    **Instructions:**
+                    Draft an engaging and authentic LinkedIn post (around 150-200 words) in ${lang}. The post should:
+                    - Start with a strong hook that grabs attention.
+                    - Share an insight about the challenges of water scarcity or energy costs in the region.
+                    - Subtly introduce NoorNation's solution as the answer.
+                    - End with an open-ended question to encourage engagement.
+                    - Include 3-4 relevant hashtags like #Sustainability, #AgriTech, #MENA, #SolarEnergy, #WaterScarcity.`;
+            }
+            return '';
+        }
+
+        async function generateContent(type, dataKey = '') {
+            const lang = document.documentElement.lang;
+            modalOverlay.style.display = 'flex';
+            modalOutput.innerHTML = '<div class="loading-spinner"></div>';
+            copyBtn.style.display = 'none';
+
+            let titleText = translations[lang].gemini.title[type];
+            if (type === 'persona') {
+                titleText += ` ${translations[lang].section2.personas[dataKey].name}`;
+            } else if (type === 'threat') {
+                const threatSpan = document.querySelector(`[data-translate="section2.swot.${dataKey}"]`);
+                titleText += ` "${threatSpan.innerText.split(':')[0]}"`;
+            }
+            modalTitle.innerText = titleText;
+            
+            const prompt = getPrompt(type, dataKey);
+            if (!prompt) {
+                modalOutput.innerText = 'Error: Could not generate prompt.';
+                return;
+            }
+            
+            try {
+                let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
+                const payload = { contents: chatHistory };
+                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+                
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                
+                if (!response.ok) {
+                    const errorBody = await response.json();
+                    throw new Error(`API Error (${response.status}): ${errorBody.error.message}`);
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 && result.candidates[0].content) {
+                    const text = result.candidates[0].content.parts[0].text;
+                    modalOutput.innerText = text; 
+                    copyBtn.style.display = 'inline-flex';
+                } else {
+                     modalOutput.innerText = "No content was generated. The response may have been blocked due to safety policies or other reasons. Please check the console for details.";
+                     console.log("Full API Response:", result);
+                }
+            } catch (error) {
+                console.error('Gemini API Error:', error);
+                modalOutput.innerText = `Error: Could not fetch response from AI. \n\nDetails: ${error.message}`;
+            }
         }
     </script>
 </body>
