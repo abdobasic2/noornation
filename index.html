@@ -84,9 +84,7 @@
             font-weight: 700;
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        body.ltr header h1 { font-family: var(--font-primary); }
-        body.rtl header h1 { font-family: var(--font-secondary); }
-
+        
         header p {
             font-size: 1.3rem;
             font-weight: 300;
@@ -128,9 +126,6 @@
             border-bottom: 3px solid transparent;
             font-size: 0.9rem;
         }
-        
-        body.ltr nav ul li a { font-family: var(--font-primary); }
-        body.rtl nav ul li a { font-family: var(--font-secondary); }
 
         nav ul li a:hover, nav ul li a.active {
             color: var(--secondary-color);
@@ -171,7 +166,7 @@
         section {
             padding: 100px 20px;
             border-bottom: 1px solid var(--light-gray);
-            overflow: hidden; /* To contain animations */
+            overflow: hidden;
         }
         
         section:last-of-type {
@@ -187,9 +182,6 @@
             padding-bottom: 20px;
             font-weight: 700;
         }
-        body.ltr h2 { font-family: var(--font-primary); }
-        body.rtl h2 { font-family: var(--font-secondary); }
-
 
         h2::after {
             content: '';
@@ -251,8 +243,7 @@
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* All other modular styles are included in the JS section for brevity in this final combined file */
-        .swot-container .tabs-container { display: flex; justify-content: center; margin-bottom: 2rem; border-radius: 50px; background: var(--white); box-shadow: var(--card-shadow); padding: 0.5rem; }
+        .swot-container .tabs-container { display: flex; justify-content: center; margin-bottom: 2rem; border-radius: 50px; background: var(--white); box-shadow: var(--card-shadow); padding: 0.5rem; flex-wrap: wrap; }
         .swot-container .tab { padding: 0.8rem 1.5rem; cursor: pointer; font-weight: 600; border: none; background: transparent; font-size: 1.1rem; color: var(--primary-color); border-radius: 50px; transition: all 0.4s ease; }
         .swot-container .tab i { margin-right: 8px; }
         body.rtl .swot-container .tab i { margin-right: 0; margin-left: 8px; }
@@ -301,12 +292,18 @@
 
         .roi-calculator, #cac-clv-viz { display: grid; gap: 2rem; align-items: center; }
         .roi-calculator { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-        #cac-clv-viz { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); text-align: center; }
-        #cac-clv-viz .viz-bar-container { position: relative; height: 50px; background: #e9ecef; border-radius: 10px; overflow: hidden; }
-        #cac-clv-viz .viz-bar { position: absolute; left: 0; top: 0; height: 100%; border-radius: 10px; transition: width 1s ease-out; }
-        #cac { background: var(--accent-color); }
-        #clv { background: var(--secondary-color); }
-        #cac-clv-viz .viz-label { font-weight: 600; margin-top: 0.5rem; }
+        .kpi-dashboard { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center; }
+        .kpi-card { background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease; }
+        .kpi-card:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.05); }
+        .kpi-card h4 { font-size: 1.2rem; color: var(--light-gray); margin-bottom: 1rem; }
+        .kpi-value { font-size: 3rem; font-weight: 700; color: var(--accent-color); }
+        .kpi-target { font-size: 1rem; color: var(--light-gray); opacity: 0.8; }
+        
+        #kpi-section { background-color: var(--primary-color); color: var(--white); }
+        #kpi-section h2 { color: var(--white); }
+        #kpi-chart-controls { display: flex; justify-content: center; margin: 2rem 0; }
+        #kpi-chart-controls select { padding: 0.8rem; border: 2px solid var(--accent-color); border-radius: 8px; font-size: 1rem; background-color: var(--white); color: var(--primary-color); cursor: pointer; width: 300px; }
+        #kpiChartContainer { max-width: 800px; margin: 2rem auto 0 auto; background: var(--white); padding: 1rem; border-radius: 15px; }
 
     </style>
 </head>
@@ -561,3 +558,5 @@
     </script>
 </body>
 </html>
+" between the  and  in the Canvas.
+I want to delete this part and make it a link from the nav 
