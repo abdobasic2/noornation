@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoorNation 2025: The Complete Go-to-Market Strategy</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap');
+
+        :root {
+            --primary-color: #003366; /* Deep Blue */
+            --secondary-color: #00A86B; /* Jade Green */
+            --accent-color: #FFA500; /* Orange */
+            --background-color: #f4f7f6;
+            --text-color: #333;
+            --light-gray: #e0e0e0;
+            --white: #ffffff;
+            --card-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --font-primary: 'Poppins', sans-serif;
+            --font-secondary: 'Cairo', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.7;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+       .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #00509e);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            border-bottom: 5px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: move-dots 20s linear infinite;
+        }
+
+        @keyframes move-dots {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-100px, 100px); }
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-secondary);
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            font-weight: 300;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0.5rem 0;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            color: var(--primary-color);
+            padding: 0.85rem 1.1rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: block;
+            border-bottom: 3px solid transparent;
+            font-family: var(--font-secondary);
+            font-size: 0.95rem;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 100px 20px;
+            border-bottom: 1px solid var(--light-gray);
+            overflow: hidden; /* To contain animations */
+        }
+        
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+            font-family: var(--font-secondary);
+            font-weight: 700;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 5px;
+        }
+        
+        h3 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            font-family: var(--font-secondary);
+        }
+
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        ul {
+            list-style-position: inside;
+            padding-left: 1rem;
+        }
+
+       .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 168, 107, 0.15);
+            border-color: var(--secondary-color);
+        }
+
+        /* SWOT Tabs styles */
+        .swot-container .tabs-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-radius: 50px;
+            background: var(--white);
+            box-shadow: var(--card-shadow);
+            padding: 0.5rem;
+        }
+        .swot-container .tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            border: none;
+            background: transparent;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            font-family: var(--font-secondary);
+        }
+        .swot-container .tab i {
+            margin-right: 8px;
+        }
+        .swot-container .tab.active {
+            color: var(--white);
+            background: var(--secondary-color);
+            transform: scale(1.05);
+        }
+        .swot-container .tab-content {
+            display: none;
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+        }
+        .swot-container .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Journey Timeline Styles */
+        #journey-section {
+            background-color: var(--white);
+        }
+        .journey-timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            padding: 40px 0;
+            overflow-x: auto;
+            padding-bottom: 30px; 
+        }
+        .journey-timeline::-webkit-scrollbar { height: 8px; }
+        .journey-timeline::-webkit-scrollbar-track { background: var(--light-gray); }
+        .journey-timeline::-webkit-scrollbar-thumb { background: var(--secondary-color); border-radius: 4px; }
+        
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            top: 40px; 
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: var(--light-gray);
+            z-index: 0;
+        }
+        #timeline-progress {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 0;
+            width: 0%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            z-index: 1;
+            transition: width 0.5s ease-out;
+        }
+        .journey-stage {
+            flex: 1;
+            min-width: 280px;
+            padding: 0 15px;
+            position: relative;
+            text-align: center;
+            transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.5s ease;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        .journey-stage.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .journey-stage .icon-container {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border: 5px solid var(--secondary-color);
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            box-shadow: 0 0 0 10px var(--white);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+        }
+        .journey-stage:hover .icon-container {
+            transform: scale(1.15) rotate(10deg);
+            background-color: var(--accent-color);
+            color: var(--white);
+        }
+        .journey-stage .stage-content {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            border-top: 5px solid var(--accent-color);
+            min-height: 320px;
+        }
+        .journey-stage h3 {
+            margin-top: 0;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            font-family: var(--font-secondary);
+        }
+        .journey-stage ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 1rem;
+        }
+        .journey-stage ul li {
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1rem;
+            margin-bottom: 0.8rem;
+        }
+        .journey-stage ul li::before {
+            content: '\f00c'; /* Font Awesome check icon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+        }
+        .journey-stage:nth-child(1) { transition-delay: 0.1s; }
+        .journey-stage:nth-child(2) { transition-delay: 0.2s; }
+        .journey-stage:nth-child(3) { transition-delay: 0.3s; }
+        .journey-stage:nth-child(4) { transition-delay: 0.4s; }
+
+
+        /* KPI Dashboard & Chart */
+        #kpi-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+        #kpi-section h2 {
+            color: var(--white);
+        }
+       .kpi-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+       .kpi-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .kpi-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.05);
+        }
+       .kpi-card h4 {
+            font-size: 1.2rem;
+            color: var(--light-gray);
+            margin-bottom: 1rem;
+            font-family: var(--font-secondary);
+       }
+       .kpi-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+       }
+       .kpi-target {
+            font-size: 1rem;
+            color: var(--light-gray);
+            opacity: 0.8;
+       }
+       #kpi-chart-controls {
+           display: flex;
+           justify-content: center;
+           margin: 2rem 0;
+       }
+       #kpi-chart-controls select {
+            padding: 0.8rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: var(--white);
+            color: var(--primary-color);
+            font-family: var(--font-secondary);
+            cursor: pointer;
+            width: 300px;
+       }
+       #kpiChartContainer {
+           max-width: 800px;
+           margin: 2rem auto 0 auto;
+           background: var(--white);
+           padding: 1rem;
+           border-radius: 15px;
+       }
+        
+        /* Accordion */
+        .accordion {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .accordion-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .accordion-header {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 1.25rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+            font-family: var(--font-secondary);
+        }
+        .accordion-header:hover {
+            background-color: #f0f8ff;
+        }
+        .accordion-header .icon {
+            transition: transform 0.4s ease;
+            font-size: 1.2rem;
+        }
+        .accordion-item.active .accordion-header .icon {
+            transform: rotate(180deg);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), padding 0.5s ease-out;
+            padding: 0 1.5rem;
+        }
+        .accordion-content .content-inner {
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        /* ROI Calculator Styles */
+        .roi-calculator {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+        .roi-calculator .form-group {
+            margin-bottom: 1rem;
+        }
+        .roi-calculator label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .roi-calculator input, .roi-calculator select {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 8px;
+            border: 1px solid var(--light-gray);
+        }
+        .roi-calculator button {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        .roi-calculator button:hover {
+            background-color: #008a59;
+        }
+        .roi-results h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .roi-results p {
+            font-size: 1.2rem;
+        }
+        .roi-results .highlight {
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media screen and (max-width: 992px) {
+            .journey-stage { min-width: 280px; }
+            .roi-calculator { grid-template-columns: 1fr; }
+        }
+
+        @media screen and (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            h2 { font-size: 2.2rem; }
+            nav ul { flex-direction: column; align-items: center; }
+            .comparison-results { grid-template-columns: 1fr; }
+            .competitor-selectors { flex-direction: column; }
+            .journey-timeline { padding-left: 10px; padding-right: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>NoorNation 2025</h1>
+            <p>The Complete Go-to-Market Strategy: Roadmap for Regional Leadership and Sustainable Growth</p>
+        </div>
+    </header>
+
+    <nav id="navbar">
+        <ul>
+            <li><a href="#section1">Executive Dashboard</a></li>
+            <li><a href="#section2">Strategic Analysis</a></li>
+            <li><a href="#section3">Positioning & Value</a></li>
+            <li><a href="#journey-section">The Customer Journey</a></li>
+            <li><a href="#section4">Marketing & Sales Engine</a></li>
+            <li><a href="#section5">Implementation & Budget</a></li>
+            <li><a href="#kpi-section">Performance & KPIs</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="section1">
+            <div class="container">
+                <h2>Section 1: Executive Dashboard</h2>
+                <div class="card">
+                    <h3>1.1. 2025 Vision & Mission</h3>
+                    <p><strong>Vision:</strong> To be the indisputable leader and go-to expert for integrated, solar-powered water and energy solutions in the MENA region, starting with Egypt and the UAE.</p>
+                    <p><strong>Mission:</strong> To empower one million beneficiaries by providing sustainable, reliable, and cost-effective access to clean water and energy, thereby driving agricultural productivity, food security, and community resilience.</p>
+                </div>
+                 <div class="card kpi-dashboard">
+                    <div class="kpi-card">
+                        <h4>Brand Impressions</h4>
+                        <div class="kpi-value" data-target="3250000">0</div>
+                        <div class="kpi-target">2025 Year-End Goal</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Qualified Leads</h4>
+                        <div class="kpi-value" data-target="3000">0</div>
+                        <div class="kpi-target">2025 Year-End Goal</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Sales Closed</h4>
+                        <div class="kpi-value" data-target="20">0</div>
+                        <div class="kpi-target">2025 Year-End Goal</div>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Engagement Rate</h4>
+                        <div class="kpi-value" data-target="20">0</div>%
+                        <div class="kpi-target">Sustained Target</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section2">
+            <div class="container">
+                <h2>Section 2: Strategic Analysis</h2>
+                <div class="card swot-container">
+                    <h3>2.1. Interactive SWOT Analysis</h3>
+                     <div class="tabs-container">
+                        <button class="tab active" onclick="openSwotTab(event, 'Strengths')"><i class="fas fa-rocket"></i> Strengths</button>
+                        <button class="tab" onclick="openSwotTab(event, 'Weaknesses')"><i class="fas fa-wrench"></i> Weaknesses</button>
+                        <button class="tab" onclick="openSwotTab(event, 'Opportunities')"><i class="fas fa-lightbulb"></i> Opportunities</button>
+                        <button class="tab" onclick="openSwotTab(event, 'Threats')"><i class="fas fa-shield-alt"></i> Threats</button>
+                    </div>
+
+                    <div id="Strengths" class="tab-content active">
+                        <h4>Strengths</h4>
+                        <ul>
+                            <li><strong>Award-Winning Credibility:</strong> The Access Sharjah Challenge 2024 win is our primary tool for UAE market entry.</li>
+                            <li><strong>Proven & Quantifiable Impact:</strong> Track record in Egypt (22 LifeBox units, 2,200 acres irrigated, $510,000 saved).</li>
+                            <li><strong>Integrated Solution Superiority:</strong> LifeBox is a unique, "Plug & Play" all-in-one solution for energy and water.</li>
+                        </ul>
+                    </div>
+
+                    <div id="Weaknesses" class="tab-content">
+                        <h4>Weaknesses</h4>
+                        <ul>
+                           <li><strong>Ineffective Referral Program:</strong> Current "third-party resell" model is structurally flawed.</li>
+                           <li><strong>Undeveloped Financing Offer:</strong> "Flexible financial models" lack substance and need a clear, marketable program.</li>
+                        </ul>
+                    </div>
+
+                    <div id="Opportunities" class="tab-content">
+                        <h4>Opportunities</h4>
+                        <ul>
+                            <li><strong>Alignment with National Strategies:</strong> Perfectly aligned with UAE's Food Security 2051 and Energy 2050 strategies.</li>
+                            <li><strong>Exploiting Competitor Weaknesses:</strong> Limited digital presence of regional competitors creates an opening for digital dominance.</li>
+                            <li><strong>Untapped Market Segments:</strong> Significant opportunities in KSA and other GCC countries.</li>
+                        </ul>
+                    </div>
+                     <div id="Threats" class="tab-content">
+                        <h4>Threats</h4>
+                        <ul>
+                            <li><strong>Inertia of Traditional Solutions:</strong> Dominance of diesel pumps requires marketing focused on their vulnerabilities.</li>
+                            <li><strong>Price-Based Competition:</strong> Need to shift the conversation from price to Total Cost of Ownership (TCO) and ROI.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section3">
+            <div class="container">
+                <h2>Section 3: Positioning, Value & Pricing Strategy</h2>
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-bullseye icon-header"></i>Our Strategic Positioning Statement <span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                            <div class="content-inner">
+                                <p><strong>For</strong> large-scale farmers and off-grid commercial enterprises in the MENA region <strong>who</strong> struggle with water scarcity and volatile energy costs, <strong>NoorNation</strong> is the trusted partner for integrated solar water and power solutions. <strong>Unlike</strong> piecemeal component suppliers, <strong>we provide</strong> a complete, "plug-and-play" system (LifeBox) that delivers long-term ROI, operational simplicity, and energy independence, backed by award-winning technology and flexible financing.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-gem icon-header"></i>The NoorNation Value Proposition<span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                            <div class="content-inner">
+                                <p>Our value proposition is simple: We eliminate your operational headaches and increase your long-term profitability by providing a reliable, all-in-one solution for your two most critical resources: water and energy. We replace unpredictable costs and complex systems with sustainable, predictable results.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-dollar-sign icon-header"></i>Pricing Strategy & ROI Calculator<span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                            <div class="content-inner">
+                                <h3>Value-Based Pricing</h3>
+                                <p>Our pricing is not based on cost-plus or competitor matching. It is based on the **value** delivered to the customer. We price LifeBox based on the significant, quantifiable savings and profit generation it provides over its lifespan (TCO & ROI). This positions it as an investment, not an expense.</p>
+                                <h3>Interactive ROI Calculator</h3>
+                                <p>Discover your potential savings with our interactive calculator. This tool provides a clear financial justification for investing in NoorNation's solutions.</p>
+                                <div class="roi-calculator">
+                                    <div class="roi-form">
+                                        <div class="form-group">
+                                            <label for="diesel-cost">Current Monthly Diesel Cost (EGP)</label>
+                                            <input type="number" id="diesel-cost" placeholder="e.g., 30000">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lifebox-cost">Estimated LifeBox System Cost (EGP)</label>
+                                            <input type="number" id="lifebox-cost" placeholder="e.g., 750000">
+                                        </div>
+                                         <button onclick="calculateROI()">Calculate My Savings</button>
+                                    </div>
+                                    <div class="roi-results" id="roi-results">
+                                        <h4>Your Financial Snapshot:</h4>
+                                        <p>Enter your costs to see the results.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="journey-section">
+            <div class="container">
+                <h2>Section 4: The Customer Journey Map</h2>
+                <div class="journey-timeline" id="journey-timeline">
+                    <div id="timeline-progress"></div>
+                    <!-- Stage 1 -->
+                    <div class="journey-stage">
+                        <div class="icon-container"><i class="fas fa-broadcast-tower"></i></div>
+                        <div class="stage-content">
+                            <h3>1. Awareness</h3>
+                            <p>Customer becomes aware of a problem (high costs, water issues) and discovers NoorNation.</p>
+                            <ul>
+                                <li>LinkedIn Thought Leadership</li>
+                                <li>Targeted Digital Ads</li>
+                                <li>PR & Media (Sharjah Win)</li>
+                                <li>SEO & Blog Content</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Stage 2 -->
+                    <div class="journey-stage">
+                        <div class="icon-container"><i class="fas fa-search-plus"></i></div>
+                        <div class="stage-content">
+                            <h3>2. Consideration</h3>
+                            <p>Customer actively researches solutions and evaluates NoorNation against competitors.</p>
+                             <ul>
+                                <li>Webinars & Workshops</li>
+                                <li>Detailed Case Studies</li>
+                                <li>ROI Calculator Tool</li>
+                                <li>Exhibition Demos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Stage 3 -->
+                    <div class="journey-stage">
+                        <div class="icon-container"><i class="fas fa-file-signature"></i></div>
+                        <div class="stage-content">
+                            <h3>3. Decision & Purchase</h3>
+                             <p>Customer engages directly with the sales team to finalize their decision.</p>
+                             <ul>
+                                <li>Consultative Client Visits</li>
+                                <li>Customized Proposals</li>
+                                <li>Financing Package Presentation</li>
+                                <li>Contract Negotiation</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Stage 4 -->
+                    <div class="journey-stage">
+                        <div class="icon-container"><i class="fas fa-cogs"></i></div>
+                        <div class="stage-content">
+                            <h3>4. Onboarding & Loyalty</h3>
+                             <p>Customer receives the product and is transitioned into a long-term partner.</p>
+                            <ul>
+                                <li>Seamless Installation</li>
+                                <li>Operator Training</li>
+                                <li>Proactive Customer Support</li>
+                                <li>Satisfaction Surveys</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <!-- Stage 5 -->
+                     <div class="journey-stage">
+                        <div class="icon-container"><i class="fas fa-bullhorn"></i></div>
+                        <div class="stage-content">
+                            <h3>5. Advocacy</h3>
+                             <p>A satisfied customer becomes a source of new business through trust and referrals.</p>
+                             <ul>
+                                <li>Invitation to Ambassador Program</li>
+                                <li>Featuring in Case Studies</li>
+                                <li>Speaking at Events</li>
+                                <li>Providing Testimonials</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="section5">
+            <div class="container">
+                <h2>Section 5: The Marketing & Sales Engine</h2>
+                 <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-brain icon-header"></i>B2B Thought Leadership Content <span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                            <div class="content-inner"><p>We will dominate the digital narrative by becoming the go-to experts. Our strategy is built on pillar content like in-depth case studies, technical white papers, and quarterly webinars that address our customers' biggest challenges head-on.</p></div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-recycle icon-header"></i>Content Repurposing Hub <span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                           <div class="content-inner"><p>Maximum ROI from every content piece. A single webinar will be systematically "atomized" into blog posts, micro-videos, LinkedIn articles, infographics, and more, ensuring a consistent, multi-channel message with minimal extra effort.</p></div>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-map-marked-alt icon-header"></i>Distribution & Sales Channels<span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                            <div class="content-inner">
+                                <p>Our go-to-market model uses a multi-channel approach to maximize reach and effectiveness:</p>
+                                <ul>
+                                    <li><strong>Direct Sales Force:</strong> Our core channel for large B2B/B2G clients, focusing on consultative selling and relationship building.</li>
+                                    <li><strong>NoorNation Ambassadors Program:</strong> A formalized referral channel to leverage our most valuable asset - satisfied customers.</li>
+                                    <li><strong>Strategic Partnerships:</strong> Collaborating with agricultural consultancies, real estate developers, and financing institutions to generate qualified leads.</li>
+                                    <li><strong>Digital Self-Service (Future):</strong> Exploring an e-commerce portal for smaller, standardized products like the NoorBox Basic.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section6">
+            <div class="container">
+                <h2>Section 6: Implementation, Team & Budget</h2>
+                 <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-calendar-alt icon-header"></i>Implementation Roadmap (Key Milestones) <span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                            <div class="content-inner">
+                                <p>This timeline highlights the critical path for launching our key strategic initiatives.</p>
+                                <ul>
+                                    <li><strong>Q1 2025:</strong> Finalize EDB partnership in UAE. Launch new website with ROI Calculator. SEO audit complete.</li>
+                                    <li><strong>Q2 2025:</strong> Launch "NoorNation Ambassadors" program. Host first major webinar. Participate in Al Ain Agriculture Exhibition.</li>
+                                    <li><strong>Q3 2025:</strong> Full integrated campaign for Sahara Expo. Secure first two UAE contracts.</li>
+                                    <li><strong>Q4 2025:</strong> Full integrated campaign for AGRENA. Publish "State of Solar Water" report. Finalize 2026 plan based on 2025 data.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-users-cog icon-header"></i>Team Structure & Responsibilities<span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                            <div class="content-inner">
+                               <p>Success requires a clear allocation of roles. The proposed structure includes:</p>
+                               <ul>
+                                   <li><strong>Head of Marketing & Growth:</strong> Oversees strategy, budget, and KPIs. Manages agency/freelancer relationships.</li>
+                                   <li><strong>Content & Community Manager:</strong> Executes the content strategy, manages social media, and runs the webinar program.</li>
+                                   <li><strong>Sales & Partnership Lead (Egypt/UAE):</strong> Manages the direct sales team, client visits, and strategic partnerships.</li>
+                                   <li>**Freelancers/Agency:** To be used for specialized tasks like graphic design, video production, and technical copywriting to support the internal team.</li>
+                               </ul>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="accordion-item">
+                        <div class="accordion-header"><i class="fas fa-wallet icon-header"></i>Performance-Based Budget Allocation<span class="icon fas fa-chevron-down"></span></div>
+                        <div class="accordion-content">
+                           <div class="content-inner">
+                               <p>The budget is allocated based on the strategic importance and expected ROI of each activity.</p>
+                               <div style="overflow-x:auto;">
+                                   <table>
+                                       <thead>
+                                           <tr>
+                                               <th>Category</th>
+                                               <th>Monthly Budget (EGP)</th>
+                                               <th>Objective</th>
+                                               <th>Key Metric</th>
+                                           </tr>
+                                       </thead>
+                                       <tbody>
+                                           <tr>
+                                               <td>Digital Ads (LinkedIn, Google)</td>
+                                               <td>40,000</td>
+                                               <td>Promote webinars, content, drive MQLs</td>
+                                               <td>Cost per MQL</td>
+                                           </tr>
+                                           <tr>
+                                               <td>Event Marketing (Pro-rated)</td>
+                                               <td>70,000</td>
+                                               <td>Generate high-quality SQLs, build brand</td>
+                                               <td>Cost per Event SQL</td>
+                                           </tr>
+                                           <tr>
+                                               <td>Content & SEO (incl. outsourcing)</td>
+                                               <td>25,000</td>
+                                               <td>Build thought leadership, drive organic traffic</td>
+                                               <td>Organic Leads</td>
+                                           </tr>
+                                            <tr>
+                                               <td>Tools & Software (CRM, Webinar, etc.)</td>
+                                               <td>15,000</td>
+                                               <td>Enable efficient operations & measurement</td>
+                                               <td>Team Productivity</td>
+                                           </tr>
+                                           <tr>
+                                               <td><strong>Total Monthly Estimate</strong></td>
+                                               <td><strong>150,000</strong></td>
+                                               <td><strong>Drive overall growth</strong></td>
+                                               <td><strong>CAC & CLV</strong></td>
+                                           </tr>
+                                       </tbody>
+                                   </table>
+                               </div>
+                           </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kpi-section">
+            <div class="container">
+                <h2>Section 7: Performance, Measurement & KPIs</h2>
+                <div id="kpi-chart-controls">
+                     <select id="kpi-selector">
+                        <option value="brandDominance">Track Brand Dominance</option>
+                        <option value="leadGen">Track Lead Generation</option>
+                        <option value="sales">Track Sales Performance</option>
+                    </select>
+                </div>
+                <div id="kpiChartContainer">
+                    <canvas id="kpiChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    const offset = 60; // Height of the sticky nav
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = targetElement.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('nav ul li a');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 70) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').substring(1) === current) {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        // SWOT Tabs
+        function openSwotTab(evt, tabName) {
+            let i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
+
+        // ROI Calculator
+        function calculateROI() {
+            const dieselCost = parseFloat(document.getElementById('diesel-cost').value);
+            const lifeboxCost = parseFloat(document.getElementById('lifebox-cost').value);
+            const resultsDiv = document.getElementById('roi-results');
+
+            if (isNaN(dieselCost) || isNaN(lifeboxCost) || dieselCost <= 0 || lifeboxCost <= 0) {
+                resultsDiv.innerHTML = '<h4>Your Financial Snapshot:</h4><p style="color:red;">Please enter valid costs.</p>';
+                return;
+            }
+
+            const annualDieselSavings = dieselCost * 12;
+            const paybackMonths = lifeboxCost / dieselCost;
+            const paybackYears = paybackMonths / 12;
+            const savings5Year = (annualDieselSavings * 5) - lifeboxCost;
+
+            resultsDiv.innerHTML = `
+                <h4>Your Financial Snapshot:</h4>
+                <p>Annual Diesel Savings: <span class="highlight">${annualDieselSavings.toLocaleString('en-US')} EGP</span></p>
+                <p>Payback Period: <span class="highlight">${paybackYears.toFixed(1)} years</span></p>
+                <p>Net Savings in 5 Years: <span class="highlight">${savings5Year.toLocaleString('en-US')} EGP</span></p>
+            `;
+        }
+
+        // Accordion Logic
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            header.addEventListener('click', () => {
+                const content = item.querySelector('.accordion-content');
+                
+                if (item.classList.contains('active')) {
+                    item.classList.remove('active');
+                    content.style.maxHeight = '0';
+                } else {
+                    accordionItems.forEach(otherItem => {
+                        if (otherItem.classList.contains('active')) {
+                            otherItem.classList.remove('active');
+                            otherItem.querySelector('.accordion-content').style.maxHeight = '0';
+                        }
+                    });
+                    item.classList.add('active');
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                }
+            });
+        });
+
+
+        // KPI Chart
+        const kpiSelector = document.getElementById('kpi-selector');
+        const ctx = document.getElementById('kpiChart').getContext('2d');
+        let kpiChart;
+
+        const kpiData = {
+            brandDominance: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                datasets: [{
+                    label: 'Brand Impressions (in Millions)',
+                    data: [0.75, 1.5, 2.5, 3.25],
+                    borderColor: 'rgba(0, 168, 107, 1)',
+                    backgroundColor: 'rgba(0, 168, 107, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            leadGen: {
+                labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                 datasets: [{
+                    label: 'Qualified Leads (Cumulative)',
+                    data: [200, 700, 1800, 3000],
+                    borderColor: 'rgba(255, 165, 0, 1)',
+                    backgroundColor: 'rgba(255, 165, 0, 0.5)',
+                    type: 'bar',
+                }]
+            },
+            sales: {
+                 labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                 datasets: [{
+                    label: 'Sales Closed (Cumulative)',
+                    data: [2, 5, 12, 20],
+                    borderColor: 'rgba(0, 51, 102, 1)',
+                    backgroundColor: 'rgba(0, 51, 102, 0.2)',
+                    fill: true,
+                    tension: 0.1
+                }]
+            }
+        };
+
+        function updateChart(kpi) {
+            if (kpiChart) { kpiChart.destroy(); }
+            kpiChart = new Chart(ctx, {
+                type: kpiData[kpi].datasets[0].type || 'line',
+                data: kpiData[kpi],
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: true,
+                    scales: { y: { beginAtZero: true }, x: { grid: { display: false } } },
+                    plugins: { legend: { position: 'top' }, title: { display: true, text: 'Quarterly Progress Towards Key Goals' } }
+                }
+            });
+        }
+        
+        kpiSelector.addEventListener('change', (e) => updateChart(e.target.value));
+        
+        // Intersection Observer for animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    if (entry.target.classList.contains('kpi-value')) {
+                        const target = +entry.target.getAttribute('data-target');
+                        animateValue(entry.target, 0, target, 2000);
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.journey-stage, .kpi-value').forEach(el => observer.observe(el));
+        
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString('en-US');
+                if (progress < 1) window.requestAnimationFrame(step);
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Initial calls
+        document.addEventListener('DOMContentLoaded', () => {
+            openSwotTab({currentTarget: document.querySelector('.swot-container .tab.active')}, 'Strengths');
+            updateChart('brandDominance');
+        });
+
+    </script>
+</body>
+</html>
